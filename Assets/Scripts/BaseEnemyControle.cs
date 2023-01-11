@@ -1,156 +1,85 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.AI;
 
 public class BaseEnemyControle : MonoBehaviour
 {
-    public float speed = 5f; // The speed at which the enemy moves
-    public float chaseRange = 30f; // The distance at which the enemy will start chasing the player
-    public float attackRange = 5f; // The distance at which the enemy will attack the player
-    public float patrolRadius = 10f; // The radius within which the enemy will patrol
-    public Transform[] patrolPoints; // The points that the enemy will patrol between
-    private Transform player; // The player's transform
-    private int currentPatrolPoint = 0; // The current patrol point that the enemy is heading towards
-    private bool isChasing = false; // Whether the enemy is currently chasing the player
-    private bool isAttacking = false; // Whether the enemy is currently attacking the player
+    private NavMeshAgent agent;
 
-    // Start is called before the first frame update
-    void Start()
+    private Transform player;
+
+    //Patroling
+    private Vector3 walkPoint;
+    bool walkPointSet = false;
+    public float walkPointRange = 7f;
+
+    //Attacking
+    private bool inPositionToAttack;
+
+    //States
+    public float chaseRange = 15, attackRange = 2;
+    private float distanceToPlayer;
+
+    private void Awake()
     {
-        // Get references to the player's transform and the enemy's rigidbody
         player = GameObject.FindGameObjectWithTag("Player").transform;
+        agent = GetComponent<NavMeshAgent>();
     }
 
-    // Update is called once per frame
-    void Update()
+    private void Update()
     {
-        // Calculate the distance to the player
-        float distanceToPlayer = Vector2.Distance(transform.position, player.position);
-
-        // If the player is within the chase range and is not already chasing or attacking, start chasing the player
-        if (distanceToPlayer <= chaseRange && !isChasing && !isAttacking)
-        {
-            StartChasing();
-        }
-        // If the player is outside the chase range and is currently chasing, stop chasing and start patrolling
-        else if (distanceToPlayer > chaseRange && isChasing)
-        {
-            StopChasing();
-        }
-        // If the player is within the attack range and is currently chasing, start attacking the player
-        else if (distanceToPlayer <= attackRange && isChasing)
-        {
-            Attack();
-        }
-
-        // If the enemy is currently chasing the player, move towards the player's position
-        if (isChasing)
-        {
-            MoveTowardsPlayer();
-        }
-        // If the enemy is not currently chasing the player, move towards the next patrol point
-        else
-        {
-            MoveTowardsPatrolPoint();
-        }
+        //calculate the distance betwen the enemy and the player
+        distanceToPlayer = Vector3.Distance(transform.position, player.position);
+        //check wath should the enemy do attack or chase or patroling
+        if (distanceToPlayer < attackRange) AttackPlayer();
+        else inPositionToAttack = false;
+        if (distanceToPlayer < chaseRange) ChasePlayer();
+        else    Patroling();
     }
 
-    // Function to start chasing the player
-    void StartChasing()
+    private void Patroling()
     {
-        isChasing = true;
-    }
+        if (!walkPointSet) SearchWalkPoint();
 
-    // Function to stop chasing the player and start patrolling
-    void StopChasing()
+        if (walkPointSet)
+            agent.SetDestination(walkPoint);
+
+        Vector3 distanceToWalkPoint = transform.position - walkPoint;
+
+        //Walkpoint reached
+        if (distanceToWalkPoint.magnitude < 1f)
+            walkPointSet = false;
+    }
+    private void SearchWalkPoint()
     {
-        isChasing = false;
+        //Calculate random point in range
+        float randomZ = Random.Range(-walkPointRange, walkPointRange);
+        float randomX = Random.Range(-walkPointRange, walkPointRange);
+
+        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
+        walkPointSet = true;
     }
 
-    // Function to start attacking the player
-    void Attack()
+    private void ChasePlayer()
     {
-        isAttacking = true;
+        agent.SetDestination(player.position);
     }
 
-    // Function to move towards the player's position
-    void MoveTowardsPlayer()
+    private void AttackPlayer()
     {
-    // Translate the enemy in that direction
-    transform.Translate(transform.forward * speed * Time.deltaTime);
-
-        // Set the enemy's rotation to face the player
-        transform.LookAt(player);
-        /*float angle = Mathf.Atan2(direction.y, direction.x) * Mathf.Rad2Deg - 90f;
-    transform.rotation = Quaternion.Euler(0f, 0f, angle);*/
-        
+        inPositionToAttack = true;
     }
-
-    //set un partol point for the enemy to move at it
-    void SetPartolPoint()
+    public bool getInPositionToAttacke()
     {
-        patrolPoints[currentPatrolPoint].transform.position = new Vector3(transform.position.x + Random.Range(-5f, 5f),
-                                                         transform.position.y,
-                                                         transform.position.z + Random.Range(-5f, 5f));
-        
+        return inPositionToAttack;
     }
 
-    // Function to move towards the next patrol point
-    void MoveTowardsPatrolPoint()
+    private void OnDrawGizmosSelected()
     {
-        //walk in the forward dirction
-        transform.Translate(transform.forward * speed * Time.deltaTime);
-        //
-
-        /*
-                // Calculate the distance to the patrol point
-                float distanceToPatrolPoint = Vector2.Distance(transform.position, patrolPoints[currentPatrolPoint].position);
-
-                // If the enemy is within the patrol radius, move towards the patrol point
-                if (distanceToPatrolPoint <= patrolRadius)
-                {
-
-                    // Translate the enemy in that direction
-                    transform.Translate(transform.forward * speed * Time.deltaTime);
-
-                    // Set the enemy's rotation to face the patrol point
-                    transform.LookAt(patrolPoints[currentPatrolPoint]);
-                }
-
-                // If the enemy has reached the patrol point, select the next patrol point
-                if (distanceToPatrolPoint < 0.2f)
-                {
-                    SetPartolPoint();
-                }*/
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, attackRange);
+        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(transform.position, chaseRange);
     }
-
-    // Function called when the enemy collides with a wall
-    void OnCollisionEnter2D(Collision2D collision)
-    {
-        // If the enemy has collided with a wall, stop chasing or patrolling and turn around
-        if (collision.gameObject.tag == "Wall")
-        {
-            if (isChasing)
-            {
-                StopChasing();
-            }
-            else
-            {
-                currentPatrolPoint--;
-                if (currentPatrolPoint < 0)
-                {
-                    currentPatrolPoint = patrolPoints.Length - 1;
-                }
-            }
-            transform.Rotate(0f, 180f, 0f);
-        }
-    }
-
-    // Function called when the enemy finishes attacking
-    void OnAttackFinished()
-    {
-        isAttacking = false;
-    }
-
-
 }
