@@ -9,10 +9,22 @@ public class BaseEnemyControle : MonoBehaviour
 
     private Transform player;
 
+    /*a variable define the state of the enemey 
+    1 >> idle;
+    2 >> wallking;
+    3 >> chassing;
+    4 >> attaking;*/
+    private int curantState;
+
     //Patroling
     private Vector3 walkPoint;
     bool walkPointSet = false;
-    public float walkPointRange = 7f;
+    public float walkPointRange = 12f;
+    public float walkPointMinRange = 4f;
+    public float walkingSpeed = 1f;
+
+    //chasing
+    public float runSpeed = 3f;
 
     //Attacking
     private bool inPositionToAttack;
@@ -37,44 +49,60 @@ public class BaseEnemyControle : MonoBehaviour
         if (distanceToPlayer < chaseRange) ChasePlayer();
         else    Patroling();
     }
-
     private void Patroling()
     {
         if (!walkPointSet) SearchWalkPoint();
 
         if (walkPointSet)
+        {
+            
             agent.SetDestination(walkPoint);
+            agent.speed = walkingSpeed;
+            curantState = 2;
+            Vector3 distanceToWalkPoint = transform.position - walkPoint;
 
-        Vector3 distanceToWalkPoint = transform.position - walkPoint;
+            //Walkpoint reached
+            if (distanceToWalkPoint.magnitude < 1f) 
+            { 
+                agent.SetDestination(transform.position);
+                walkPointSet = false;
 
-        //Walkpoint reached
-        if (distanceToWalkPoint.magnitude < 1f)
-            walkPointSet = false;
+            }
+                
+
+        }
+
     }
     private void SearchWalkPoint()
     {
-        //Calculate random point in range
-        float randomZ = Random.Range(-walkPointRange, walkPointRange);
-        float randomX = Random.Range(-walkPointRange, walkPointRange);
+        walkPoint = new Vector3(transform.position.x + Random.Range(-walkPointMinRange, walkPointMinRange),
+                                transform.position.y,
+                                transform.position.z + Random.Range(-walkPointMinRange, walkPointMinRange));
 
-        walkPoint = new Vector3(transform.position.x + randomX, transform.position.y, transform.position.z + randomZ);
         walkPointSet = true;
     }
-
+  
+    
     private void ChasePlayer()
     {
         agent.SetDestination(player.position);
+        agent.speed = runSpeed;
+        curantState = 3;
     }
 
     private void AttackPlayer()
     {
         inPositionToAttack = true;
+        curantState = 4;
     }
     public bool getInPositionToAttacke()
     {
         return inPositionToAttack;
     }
-
+    public int getCurantState()
+    {
+        return curantState;
+    }
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
