@@ -20,6 +20,5 @@ public class enemyAnimationControler : MonoBehaviour
     {
         enemyState = enemyControle.getCurantState();
         anim.SetInteger("State", enemyState);
-        Debug.Log(enemyState);
     }
 }

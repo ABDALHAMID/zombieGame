@@ -20,7 +20,6 @@ public class BaseEnemyControle : MonoBehaviour
     private Vector3 walkPoint;
     bool walkPointSet = false;
     public float walkPointRange = 12f;
-    public float walkPointMinRange = 4f;
     public float walkingSpeed = 1f;
 
     //chasing
@@ -75,9 +74,9 @@ public class BaseEnemyControle : MonoBehaviour
     }
     private void SearchWalkPoint()
     {
-        walkPoint = new Vector3(transform.position.x + Random.Range(-walkPointMinRange, walkPointMinRange),
+        walkPoint = new Vector3(transform.position.x + Random.Range(-walkPointRange, walkPointRange),
                                 transform.position.y,
-                                transform.position.z + Random.Range(-walkPointMinRange, walkPointMinRange));
+                                transform.position.z + Random.Range(-walkPointRange, walkPointRange));
 
         walkPointSet = true;
     }
