@@ -43,17 +43,8 @@
                 },
                 {
                     "name": "Shoot",
-                    "type": "PassThrough",
-                    "id": "e4b1d911-ecd5-49f1-91e5-ef83cbe690dd",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "Hold,Press",
-                    "initialStateCheck": false
-                },
-                {
-                    "name": "ShootOneTime",
                     "type": "Button",
-                    "id": "b91f9692-5fa0-4dfd-8415-2cba63e2c5d4",
+                    "id": "e4b1d911-ecd5-49f1-91e5-ef83cbe690dd",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -265,28 +256,6 @@
                     "processors": "",
                     "groups": "",
                     "action": "Shoot",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "ac210bf4-f592-4a4d-9efe-02cbd8522470",
-                    "path": "<Mouse>/leftButton",
-                    "interactions": "Press",
-                    "processors": "",
-                    "groups": "KeyboardMouse",
-                    "action": "ShootOneTime",
-                    "isComposite": false,
-                    "isPartOfComposite": false
-                },
-                {
-                    "name": "",
-                    "id": "0fff2052-d97b-436d-946e-390cc62a3b83",
-                    "path": "",
-                    "interactions": "",
-                    "processors": "",
-                    "groups": "",
-                    "action": "ShootOneTime",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },

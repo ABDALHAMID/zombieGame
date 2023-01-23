@@ -6,8 +6,8 @@ using UnityEngine.InputSystem;
 
 public class weaponMnager : MonoBehaviour
 {
-
-
+    //input system 
+    public InputActionReference shoot;
     //bullet 
     public GameObject bullet;
 
@@ -26,7 +26,7 @@ public class weaponMnager : MonoBehaviour
     public float recoilForce;
 
     //bools
-    bool shooting, readyToShoot, reloading;
+    public bool shooting, readyToShoot, reloading;
 
     //Reference
     public Camera fpsCam;
@@ -54,18 +54,13 @@ public class weaponMnager : MonoBehaviour
         /*        if (ammunitionDisplay != null)
                     ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);*/
     }
-    private void OnShoot(InputValue value)
+    private void OnEnable()
     {
-        if (allowButtonHold && value.Get<float>() >    0.5f) shooting = true;
-        else shooting = false;
-        
-    }
-    private void OnShootOneTime(InputValue value)
-    {
-        if (!allowButtonHold && value.Get<float>() > 0.5f) shooting = true;
-        else shooting = false;
+        shoot.action.performed += setShootTrue => { shooting = true;};
+        shoot.action.canceled += setShootfalse => {shooting = false;};
 
     }
+
     //Reloading 
     private void OnReload()
     {
@@ -74,8 +69,6 @@ public class weaponMnager : MonoBehaviour
     private void MyInput()
     {
 
-        
-        
         //Reload automatically when trying to shoot without ammo
         if (readyToShoot && shooting && !reloading && bulletsLeft <= 0) Reload();
 
@@ -92,6 +85,7 @@ public class weaponMnager : MonoBehaviour
     private void Shoot()
     {
         readyToShoot = false;
+        if(!allowButtonHold) shooting = false;
 
         //Find the exact hit position using a raycast
         Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); //Just a ray through the middle of your current view
@@ -154,6 +148,7 @@ public class weaponMnager : MonoBehaviour
     private void Reload()
     {
         reloading = true;
+        shooting = false;
         Invoke("ReloadFinished", reloadTime); //Invoke ReloadFinished function with your reloadTime as delay
     }
     private void ReloadFinished()
