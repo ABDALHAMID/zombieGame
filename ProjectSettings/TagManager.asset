@@ -6,6 +6,9 @@ TagManager:
   tags:
   - CinemachineTarget
   - Wall
+  - Enemy
+  - Destroyerble
+  - ground
   layers:
   - Default
   - TransparentFX

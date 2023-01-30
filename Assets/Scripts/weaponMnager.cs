@@ -33,8 +33,8 @@ public class weaponMnager : MonoBehaviour
     public Transform attackPoint;
 
     //Graphics
-/*    public GameObject muzzleFlash;
-    public TextMeshProUGUI ammunitionDisplay;*/
+    public GameObject muzzleFlash;
+    public TextMeshProUGUI ammunitionDisplay;
 
     //bug fixing :D
     public bool allowInvoke = true;
@@ -51,8 +51,8 @@ public class weaponMnager : MonoBehaviour
         MyInput();
 
         //Set ammo display, if it exists :D
-        /*        if (ammunitionDisplay != null)
-                    ammunitionDisplay.SetText(bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);*/
+                if (ammunitionDisplay != null)
+                    ammunitionDisplay.SetText("amo : " + bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
     }
     private void OnEnable()
     {
@@ -147,6 +147,7 @@ public class weaponMnager : MonoBehaviour
 
     private void Reload()
     {
+
         reloading = true;
         shooting = false;
         Invoke("ReloadFinished", reloadTime); //Invoke ReloadFinished function with your reloadTime as delay
