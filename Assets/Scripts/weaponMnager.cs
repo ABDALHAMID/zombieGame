@@ -22,7 +22,7 @@ public class weaponMnager : MonoBehaviour
     int bulletsLeft, bulletsShot;
 
     //Recoil
-    //public Rigidbody playerRb;
+    public Rigidbody playerRb;
     public float recoilForce;
 
     //bools
@@ -44,6 +44,7 @@ public class weaponMnager : MonoBehaviour
         //make sure magazine is full
         bulletsLeft = magazineSize;
         readyToShoot = true;
+        playerRb = GetComponent<Rigidbody>();
     }
 
     private void Update()
@@ -58,7 +59,7 @@ public class weaponMnager : MonoBehaviour
     {
         shoot.action.performed += setShootTrue => { shooting = true;};
         shoot.action.canceled += setShootfalse => {shooting = false;};
-
+        
     }
 
     //Reloading 
@@ -131,7 +132,7 @@ public class weaponMnager : MonoBehaviour
             allowInvoke = false;
 
             //Add recoil to player (should only be called once)
-            //playerRb.AddForce(-directionWithSpread.normalized * recoilForce, ForceMode.Impulse);
+            playerRb.AddForce(-directionWithSpread.normalized * recoilForce, ForceMode.Impulse);
         }
 
         //if more than one bulletsPerTap make sure to repeat shoot function

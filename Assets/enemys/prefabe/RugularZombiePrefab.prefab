@@ -46,6 +46,7 @@ GameObject:
   - component: {fileID: 8341267881055857826}
   - component: {fileID: 8341267881055857839}
   - component: {fileID: 8341267881055857832}
+  - component: {fileID: 8989039676002649305}
   m_Layer: 0
   m_Name: RugularZombiePrefab
   m_TagString: Enemy
@@ -96,6 +97,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 924e199bb132e3842b35de9675352a55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 8
   walkPointRange: 7
   walkingSpeed: 0.8
   ground:
@@ -103,8 +107,11 @@ MonoBehaviour:
     m_Bits: 512
   runSpeed: 3
   scherchPoint: {fileID: 1142156559391721929}
-  chaseRange: 7
-  attackRange: 1.5
+  numberOfRaycasts: 7
+  raycastAngle: 20
+  raycastLength: 100
+  timeToStopChasing: 5
+  attackRange: 1.7
 --- !u!54 &8341267881055857827
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -142,7 +149,7 @@ NavMeshAgent:
   m_Height: 2
   m_BaseOffset: 0
   m_WalkableMask: 4294967295
-  m_ObstacleAvoidanceType: 4
+  m_ObstacleAvoidanceType: 2
 --- !u!114 &8341267881055857839
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -169,6 +176,18 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   maxHealt: 20
   curruntHealth: 0
+--- !u!114 &8989039676002649305
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341267881055857825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7ff54a2c8d9daab4e9ef3999b1768cba, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1001 &8341267880599960184
 PrefabInstance:
   m_ObjectHideFlags: 0

@@ -10,10 +10,10 @@ NavMeshProjectSettings:
   - name: Not Walkable
     cost: 1
   - name: Jump
-    cost: 2
-  - name: 
     cost: 1
-  - name: 
+  - name: dontKnow
+    cost: 1
+  - name: ngz
     cost: 1
   - name: 
     cost: 1
@@ -74,8 +74,8 @@ NavMeshProjectSettings:
   - serializedVersion: 2
     agentTypeID: 0
     agentRadius: 0.24
-    agentHeight: 1.55
-    agentSlope: 45
+    agentHeight: 1
+    agentSlope: 60
     agentClimb: 0.75
     ledgeDropHeight: 0
     maxJumpAcrossDistance: 0
