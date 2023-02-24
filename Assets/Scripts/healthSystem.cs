@@ -27,8 +27,5 @@ public class healthSystem : MonoBehaviour
             Debug.Log("we die\n script \"bulletsControler\" not complet!!!");
         }
     }
-    public bool GetIsDead()
-    {
-        return isDead;
-    }
+    public bool GetIsDead() => isDead;
 }

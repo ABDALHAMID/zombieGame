@@ -12,13 +12,13 @@ GameObject:
   - component: {fileID: 33000012994191156}
   - component: {fileID: 23000010562118286}
   - component: {fileID: 65000012652471258}
-  - component: {fileID: -9117756411598643989}
+  - component: {fileID: -8775788376990400581}
   m_Layer: 0
   m_Name: Hangar_v4
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &4000013603223344
 Transform:
@@ -98,7 +98,7 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 11.670452, y: 12.882386, z: 22.616379}
   m_Center: {x: -0.0000019073486, y: 0, z: 0}
---- !u!208 &-9117756411598643989
+--- !u!208 &-8775788376990400581
 NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -108,9 +108,9 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 5.8350005, y: 6.4410005, z: 11.308001}
+  m_Extents: {x: 5.8350005, y: 4.865, z: 11.308001}
   m_MoveThreshold: 0.1
-  m_Carve: 0
+  m_Carve: 1
   m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -1.84, z: 0}
   m_TimeToStationary: 0.5

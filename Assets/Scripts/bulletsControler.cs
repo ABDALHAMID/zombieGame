@@ -10,12 +10,8 @@ public class bulletsControler : MonoBehaviour
     private int damage;
     //check if we can collide agame
     private bool check = true;
-    private Rigidbody rb;
-    private void Awake()
-    {
-        //get the rigidbody of the bullet
-        rb = GetComponent<Rigidbody>();
-    }
+
+
     //get the information about the object hit by bullet
     private void OnCollisionEnter(Collision collision)
     {
@@ -25,15 +21,10 @@ public class bulletsControler : MonoBehaviour
         //run damage function
         DoDamage();
 
-        //add the gravity to the bullet so it's realistec
-        rb.useGravity = true;
-
         check = false;
 
-        //run the function for destroy the bullet to improve the performance
-        //--!!!!!!!!!!!!!!!!!!important--
-        //replace this with the pool of object when we have it
-        Invoke("DestroyBulletAfter", 10);
+
+        
         
     }
 
@@ -44,10 +35,11 @@ public class bulletsControler : MonoBehaviour
         if(check && whatWeHit != null)
         {
             //check if he can take damge
-            if(whatWeHit.tag == "Enemy" || whatWeHit.tag == "Destroyerble")
+            if (whatWeHit.CompareTag("Enemy") || whatWeHit.CompareTag("Destroyerble"))
             {
                 //call the takedamage script of the health system of the hiting object
                 whatWeHit.GetComponent<healthSystem>().TakeDamage(damage);
+                DestroyBulletAfter();
             }
             //if the hitted object is not capable to get damage
             else
@@ -57,18 +49,22 @@ public class bulletsControler : MonoBehaviour
                  * make un visual hit spote 
                  */
                 Debug.Log("we hit samething \n script \"bulletsControler\" not complet!!!");
+                Invoke(nameof(DestroyBulletAfter), 5f * Time.deltaTime);
             }
         }        
     }
     private void DestroyBulletAfter()
     {
+        //run the function for destroy the bullet to improve the performance
+        //--!!!!!!!!!!!!!!!!!!important--
+        //replace this with the pool of object when we have it
         Destroy(this.gameObject);
     }
-    private int getDamage()
+    private int GetDamage()
     {
         return damage;
     }
-    private void setDamage(int newDamage)
+    private void SetDamage(int newDamage)
     {
         damage = newDamage;
     }

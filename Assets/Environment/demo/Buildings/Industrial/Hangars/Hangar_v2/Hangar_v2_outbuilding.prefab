@@ -12,13 +12,13 @@ GameObject:
   - component: {fileID: 33000014181168746}
   - component: {fileID: 23000011352872600}
   - component: {fileID: 64000013979641002}
-  - component: {fileID: 3347002945171924206}
+  - component: {fileID: 6930510478540315142}
   m_Layer: 0
   m_Name: Hangar_v2_outbuilding
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &4000012191108786
 Transform:
@@ -99,7 +99,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300006, guid: d0a6f0725fb579a45a39bf98830886a1, type: 3}
---- !u!208 &3347002945171924206
+--- !u!208 &6930510478540315142
 NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,9 +109,9 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 8.069, y: 3.137, z: 3.9220002}
+  m_Extents: {x: 3.545, y: 2.935, z: 3.65}
   m_MoveThreshold: 0.1
-  m_Carve: 0
+  m_Carve: 1
   m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: -3.89, y: -0.54, z: -0.39}
   m_TimeToStationary: 0.5

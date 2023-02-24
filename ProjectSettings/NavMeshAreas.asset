@@ -15,8 +15,8 @@ NavMeshProjectSettings:
     cost: 1
   - name: ngz
     cost: 1
-  - name: 
-    cost: 1
+  - name: not walkable
+    cost: 2
   - name: 
     cost: 1
   - name: 

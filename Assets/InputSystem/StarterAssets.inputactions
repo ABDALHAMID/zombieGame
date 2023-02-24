@@ -7,7 +7,7 @@
             "actions": [
                 {
                     "name": "Move",
-                    "type": "PassThrough",
+                    "type": "Value",
                     "id": "6bc1aaf4-b110-4ff7-891e-5b9fe6f32c4d",
                     "expectedControlType": "Vector2",
                     "processors": "",
@@ -44,8 +44,17 @@
                 {
                     "name": "Shoot",
                     "type": "Button",
-                    "id": "e4b1d911-ecd5-49f1-91e5-ef83cbe690dd",
+                    "id": "402c3ffe-d083-48c3-8e4e-950cf81a0121",
                     "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "Aim",
+                    "type": "PassThrough",
+                    "id": "2a86bf46-4694-46f3-a438-f4c6c0f404d2",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -53,7 +62,7 @@
                 {
                     "name": "Reload",
                     "type": "Button",
-                    "id": "25414226-1f34-45cb-b5e0-bbf50bd53bcc",
+                    "id": "14f99358-3b6a-4347-9864-073d1e4337d5",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -239,7 +248,7 @@
                 },
                 {
                     "name": "",
-                    "id": "c4c539c5-42e7-4f53-9600-91c655094b77",
+                    "id": "6965542d-4473-4b78-bda8-f8a3300c5010",
                     "path": "<Mouse>/leftButton",
                     "interactions": "",
                     "processors": "",
@@ -250,18 +259,40 @@
                 },
                 {
                     "name": "",
-                    "id": "cb46df58-0575-49ce-be5c-9284cce3a5a7",
+                    "id": "cc22d975-f34f-4caa-af46-161564bee078",
                     "path": "<Gamepad>/rightShoulder",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "Shoot",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
                 {
                     "name": "",
-                    "id": "4b0cb2e1-7ddc-4adb-8aec-6c7ff9f2b3f0",
+                    "id": "675917d5-184a-4346-906d-430e7f6a8e06",
+                    "path": "<Mouse>/rightButton",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "64f9dc71-1d52-4495-931c-360213cd5242",
+                    "path": "<Gamepad>/rightTrigger",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Aim",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "252de128-a142-4871-bf8e-4d845a8ce806",
                     "path": "<Keyboard>/r",
                     "interactions": "",
                     "processors": "",
@@ -272,11 +303,11 @@
                 },
                 {
                     "name": "",
-                    "id": "213fe0d2-d1bf-4a6a-9985-ee624fe1208b",
-                    "path": "<Gamepad>/buttonEast",
+                    "id": "0179b9e6-c2ff-4e20-a566-c4fb477494cf",
+                    "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
+                    "groups": "Gamepad",
                     "action": "Reload",
                     "isComposite": false,
                     "isPartOfComposite": false

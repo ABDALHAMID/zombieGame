@@ -12,12 +12,13 @@ GameObject:
   - component: {fileID: 33000013661020098}
   - component: {fileID: 23000010334274326}
   - component: {fileID: 64000010087940188}
+  - component: {fileID: 7070917910353793472}
   m_Layer: 0
   m_Name: Industrial_pipe_v1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &4000011050751358
 Transform:
@@ -98,3 +99,19 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300002, guid: 5ffcfebba4a61b645bd4a65891ba6921, type: 3}
+--- !u!208 &7070917910353793472
+NavMeshObstacle:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012270689622}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Shape: 0
+  m_Extents: {x: 2.2580001, y: 6.555, z: 2.2580001}
+  m_MoveThreshold: 0.1
+  m_Carve: 1
+  m_CarveOnlyStationary: 1
+  m_Center: {x: 0, y: -0.032, z: 0}
+  m_TimeToStationary: 0.5

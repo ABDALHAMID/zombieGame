@@ -3,62 +3,121 @@ using System.Collections.Generic;
 using UnityEngine;
 using TMPro;
 using UnityEngine.InputSystem;
+using Cinemachine;
+using StarterAssets;
 
 public class weaponMnager : MonoBehaviour
 {
+    [SerializeField] private CinemachineVirtualCamera playerAimCamera;
+    [SerializeField] private StarterAssetsInputs input;
+    [SerializeField] private LayerMask aimColliderLayerMask = new LayerMask();
+    private ThirdPersonController thirdPersonController;
+
+
+    Vector3 targetPoint;
+    private weaponPosition weaponPosition;
     //input system 
-    public InputActionReference shoot;
+    [SerializeField] private InputActionReference shoot;
     //bullet 
-    public GameObject bullet;
+    private GameObject bullet;
 
     //bullet force
-    public float shootForce, upwardForce;
+    private float shootForce, upwardForce;
 
     //Gun stats
-    public float timeBetweenShooting, spread, reloadTime, timeBetweenShots;
-    public int magazineSize, bulletsPerTap;
-    public bool allowButtonHold;
+    private float timeBetweenShooting, spread, reloadTime, timeBetweenShots;
+    private int magazineSize, bulletsPerTap;
+    private bool allowButtonHold;
 
-    int bulletsLeft, bulletsShot;
+    private int bulletsLeft, bulletsShot;
 
     //Recoil
-    public Rigidbody playerRb;
-    public float recoilForce;
+    private Rigidbody weaponRb;
+    private float recoilForce;
 
     //bools
-    public bool shooting, readyToShoot, reloading;
+    private bool shooting, readyToShoot, reloading;
 
     //Reference
-    public Camera fpsCam;
-    public Transform attackPoint;
+    [SerializeField] private Camera fpsCam;
+    private Transform attackPoint;
 
     //Graphics
-    public GameObject muzzleFlash;
+    private GameObject muzzleFlash;
     public TextMeshProUGUI ammunitionDisplay;
 
     //bug fixing :D
-    public bool allowInvoke = true;
+    private bool allowInvoke = true;
 
     private void Awake()
     {
+        thirdPersonController = GetComponent<ThirdPersonController>();
+        input = GetComponent<StarterAssetsInputs>();
+        weaponPosition = GetComponentInChildren<weaponPosition>();
         //make sure magazine is full
         bulletsLeft = magazineSize;
         readyToShoot = true;
-        playerRb = GetComponent<Rigidbody>();
+        weaponRb = GetComponent<Rigidbody>();
     }
 
     private void Update()
     {
+        //Find the exact hit position using a raycast
+        Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
+        Ray ray = fpsCam.ScreenPointToRay(screenCenterPoint); //Just a ray through the middle of your current view
+
+        //check if ray hits something
+        if (Physics.Raycast(ray, out RaycastHit hit, 999f, aimColliderLayerMask))
+            targetPoint = hit.point;
+        else
+            targetPoint = ray.GetPoint(750); //Just a point far away from the player
+
+        if (input.aim)
+        {
+            thirdPersonController.SetRotateOnMove(false);
+            playerAimCamera.gameObject.SetActive(true);
+            RototeToTarget();
+        }
+        else
+        {
+            thirdPersonController.SetRotateOnMove(true);
+            playerAimCamera.gameObject.SetActive(false);
+        }
         MyInput();
 
         //Set ammo display, if it exists :D
+        if (bulletsPerTap == 0) bulletsPerTap += 1;
                 if (ammunitionDisplay != null)
                     ammunitionDisplay.SetText("amo : " + bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
+
+
+
+        weaponRb = weaponPosition.weaponRb;
+        attackPoint = weaponPosition.attackPoint;
+        muzzleFlash = weaponPosition.muzzleFlash;
+        allowButtonHold = weaponPosition.allowButtonHold;
+        bulletsPerTap = weaponPosition.bulletsPerTap;
+        magazineSize = weaponPosition.magazineSize;
+        bullet = weaponPosition.bullet;
+        shootForce = weaponPosition.shootForce;
+        upwardForce = weaponPosition.upwardForce;
+        timeBetweenShooting = weaponPosition.timeBetweenShooting;
+        spread = weaponPosition.spread;
+        reloadTime = weaponPosition.reloadTime;
+        timeBetweenShots = weaponPosition.timeBetweenShots;
+        recoilForce = weaponPosition.recoilForce;
+    }
+    private void RototeToTarget()
+    {
+        Vector3 worldAimTarget = targetPoint;
+        worldAimTarget.y = transform.position.y;
+        Vector3 aimDirection = (worldAimTarget - transform.position).normalized;
+        transform.forward = Vector3.Lerp(transform.forward, aimDirection, Time.deltaTime * 50f);
     }
     private void OnEnable()
     {
         shoot.action.performed += setShootTrue => { shooting = true;};
-        shoot.action.canceled += setShootfalse => {shooting = false;};
+        shoot.action.canceled += setShootfalse => { shooting = false;};
         
     }
 
@@ -88,17 +147,8 @@ public class weaponMnager : MonoBehaviour
         readyToShoot = false;
         if(!allowButtonHold) shooting = false;
 
-        //Find the exact hit position using a raycast
-        Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); //Just a ray through the middle of your current view
-        RaycastHit hit;
 
-        //check if ray hits something
-        Vector3 targetPoint;
-        if (Physics.Raycast(ray, out hit))
-            targetPoint = hit.point;
-        else
-            targetPoint = ray.GetPoint(75); //Just a point far away from the player
-
+        RototeToTarget();
         //Calculate direction from attackPoint to targetPoint
         Vector3 directionWithoutSpread = targetPoint - attackPoint.position;
 
@@ -119,8 +169,11 @@ public class weaponMnager : MonoBehaviour
         currentBullet.GetComponent<Rigidbody>().AddForce(fpsCam.transform.up * upwardForce, ForceMode.Impulse);
 
         //Instantiate muzzle flash, if you have one
-        /*if (muzzleFlash != null)
-            Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);*/
+        if (muzzleFlash != null)
+        {
+            GameObject currentMuzzleFlash = Instantiate(muzzleFlash, attackPoint.position, Quaternion.identity);
+            currentMuzzleFlash.transform.forward = directionWithSpread.normalized;
+        }
 
         bulletsLeft--;
         bulletsShot++;
@@ -128,16 +181,18 @@ public class weaponMnager : MonoBehaviour
         //Invoke resetShot function (if not already invoked), with your timeBetweenShooting
         if (allowInvoke)
         {
-            Invoke("ResetShot", timeBetweenShooting);
+            Invoke(nameof(ResetShot),
+                   timeBetweenShooting);
             allowInvoke = false;
 
             //Add recoil to player (should only be called once)
-            playerRb.AddForce(-directionWithSpread.normalized * recoilForce, ForceMode.Impulse);
+            weaponRb.AddForce(-directionWithSpread.normalized * recoilForce, ForceMode.Impulse);
         }
 
         //if more than one bulletsPerTap make sure to repeat shoot function
         if (bulletsShot < bulletsPerTap && bulletsLeft > 0)
-            Invoke("Shoot", timeBetweenShots);
+            Invoke(nameof(Shoot),
+                   timeBetweenShots);
     }
     private void ResetShot()
     {
@@ -148,10 +203,10 @@ public class weaponMnager : MonoBehaviour
 
     private void Reload()
     {
-
         reloading = true;
         shooting = false;
-        Invoke("ReloadFinished", reloadTime); //Invoke ReloadFinished function with your reloadTime as delay
+        Invoke(nameof(ReloadFinished),
+               reloadTime); //Invoke ReloadFinished function with your reloadTime as delay
     }
     private void ReloadFinished()
     {

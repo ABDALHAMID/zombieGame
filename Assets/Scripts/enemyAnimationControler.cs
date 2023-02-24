@@ -10,6 +10,9 @@ public class enemyAnimationControler : MonoBehaviour
     private enemyAttacks enemyAttacks;
     private Animator anim;
     private int enemyState;
+    private bool checkForAnimationEnd = false;
+    [SerializeField] 
+    private string[] attackAnimationName;
     // Start is called before the first frame update
     private void Awake()
     {
@@ -22,9 +25,24 @@ public class enemyAnimationControler : MonoBehaviour
     // Update is called once per frame
     private void Update()
     {
+        //check if the enemey is dead or attacking or moving and apply the correct animation
         if (healthSystem.GetIsDead()) enemyState = 0;
-        else if (anim.GetCurrentAnimatorStateInfo(0).IsName("Zombie Punching")) enemyState = enemyAttacks.getCurantState();
+        else if (enemyAttacks.GetIsAtacking()) enemyState = enemyAttacks.GetCurantState();
+
         else enemyState = enemyControle.getCurantState();
         anim.SetInteger("State", enemyState);
+
+        foreach (string attackAnimationName in attackAnimationName)
+        {
+            if(anim.GetCurrentAnimatorStateInfo(0).IsName(attackAnimationName) && !checkForAnimationEnd) checkForAnimationEnd = true;
+            if (enemyAttacks.GetIsAtacking() && !anim.GetCurrentAnimatorStateInfo(0).IsName(attackAnimationName) && checkForAnimationEnd)
+            {
+                checkForAnimationEnd = false;
+                enemyAttacks.AttackEnd();
+                Debug.Log("animation end");
+            }
+        }
+
     }
+
 }

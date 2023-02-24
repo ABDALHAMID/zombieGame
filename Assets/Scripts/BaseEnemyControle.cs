@@ -6,13 +6,15 @@ using UnityEngine.AI;
 public class BaseEnemyControle : MonoBehaviour
 {
     private NavMeshAgent agent;
-
+    [SerializeField]
+    private GameObject enemyGraphics;
     private GameObject Player;
     private Transform player;
     private enemyAttacks enemyAttack;
     private healthSystem healthSystem;
     [SerializeField]
     private LayerMask playerLayer;
+    public float rotationSpeed = 1.0f;
 
     //idel
     private bool isIdel;
@@ -34,13 +36,13 @@ public class BaseEnemyControle : MonoBehaviour
     //chasing
     public float runSpeed = 3f;
     public Transform scherchPoint;
-    Ray ray;
+    private Ray ray;
     public int numberOfRaycasts = 10;
     public float raycastAngle = 20f, raycastLength = 100f, timeToStopChasing = 5f;
     private bool isChasing = false, chasingInvoke = false;
 
     //Attacking
-    private bool isAttacking;
+    private bool isAttacking, attackOneTime = true;
 
     //States
     public float attackRange = 2;
@@ -57,54 +59,81 @@ public class BaseEnemyControle : MonoBehaviour
     }
     private void Update()
     {
-        if (healthSystem.GetIsDead()) Destroy(this);
-        if (scherchPoint.localRotation.x > 0.30f || scherchPoint.localRotation.x < -0.3 ) fraction *= -1;
-        if (Physics.CheckSphere(transform.position, attackRange, playerLayer)) AttackPlayer(true);
-        else AttackPlayer(false);
-        if (!isChasing) {
-            for (int i = 0; i < numberOfRaycasts; i++)
-            {
-                // Create a ray in the forward direction of the zombie
-                Vector3 raycastDirection = scherchPoint.forward;
-                // Rotate the raycast direction based on the angle and number of raycasts
-                raycastDirection = Quaternion.AngleAxis((i - numberOfRaycasts / 2) * raycastAngle, scherchPoint.up) * raycastDirection;
-                Ray ray = new Ray(scherchPoint.position, raycastDirection);
+        enemyGraphics.transform.position = transform.position;
+        enemyGraphics.transform.rotation = transform.rotation;
 
-                // Perform the raycast
-                if (Physics.Raycast(ray, out RaycastHit hit, raycastLength))
+        if (!isAttacking)
+        {
+            Debug.Log("isAttacking = false");
+
+            if (agent != null) agent.isStopped = false;
+            if (scherchPoint.localRotation.x > 0.30f || scherchPoint.localRotation.x < -0.3 ) fraction *= -1;
+
+
+            //check if the enemey not is a position to attack the player or chasing him to start the raycasting to check if he see the player
+            if (!isChasing) 
+            {
+                for (int i = 0; i < numberOfRaycasts; i++)
                 {
-                    // If the raycast hits the player, start navigating to the player
-                    if (hit.collider != null && hit.collider.CompareTag("Player")) ChasePlayer();
-                    else seePlayer = false;
-                }
+                    // Create a ray in the forward direction of the zombie
+                    Vector3 raycastDirection = scherchPoint.forward;
+                    // Rotate the raycast direction based on the angle and number of raycasts
+                    raycastDirection = Quaternion.AngleAxis((i - numberOfRaycasts / 2) * raycastAngle, scherchPoint.up) * raycastDirection;
+                    Ray ray = new Ray(scherchPoint.position, raycastDirection);
+
+                    // Perform the raycast
+                    if (Physics.Raycast(ray, out RaycastHit hit, raycastLength))
+                    {
+                        // If the raycast hits the player, start navigating to the player
+                        if (hit.collider != null && hit.collider.CompareTag("Player")) ChasePlayer();
+                        else seePlayer = false;
+                    }
 
         
+                }
+            }
+            else
+            {
+                if (chasingInvoke)
+                {
+                    chasingInvoke = false;
+                    Invoke("StopChasing", timeToStopChasing);
+                }
+                if (readyToStopChasing && !seePlayer)
+                {
+                    isChasing = false;
+                    readyToStopChasing = false;
+                }
+            }
+            //set curantState
+            if (isChasing) curantState = 3;
+            else if (isIdel) curantState = 1;
+            else curantState = 2;
+            //check if the player in the attack range of the enemey
+            if (Physics.CheckSphere(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z), attackRange, playerLayer) && attackOneTime)
+            {
+                attackOneTime = false;
+                Debug.Log("attack");
+                AttackPlayer();
             }
         }
-        else
+        //if the enemey die remove this script
+        if (healthSystem.GetIsDead())
         {
-            if (chasingInvoke)
-            {
-                chasingInvoke = false;
-                Invoke("StopChasing", timeToStopChasing);
-            }
-            if (readyToStopChasing && !seePlayer)
-            {
-                isChasing = false;
-                readyToStopChasing = false;
-            }
+            agent.isStopped = true;
+            Destroy(agent);
+            Destroy(this);
         }
-        //set curantState
-        if (isChasing) curantState = 3;
-        else if (isIdel) curantState = 1;
-        else curantState = 2;
     }
     private void FixedUpdate()
     {
-        if (isChasing) agent.SetDestination(player.position);
-        else Patroling();
-        //rotate the serchPoint so the zombie will see up and down
-        scherchPoint.Rotate(new Vector3(fraction * .5f, 0, 0));
+        if (!isAttacking)
+        {
+            if (isChasing) agent.SetDestination(player.position);
+            else Patroling();
+            //rotate the serchPoint so the zombie will see up and down
+            scherchPoint.Rotate(new Vector3(fraction * .5f, 0, 0));
+        }
     }
     private void StopChasing()
     {
@@ -167,18 +196,15 @@ public class BaseEnemyControle : MonoBehaviour
     }
     
 
-    private void AttackPlayer(bool attack)
+    private void AttackPlayer()
     {
-        agent.isStopped = attack;
-        isAttacking = attack;
-        if(isAttacking)enemyAttack.Attack();
-        
+        agent.isStopped = true;
+        Quaternion targetRotation = Quaternion.LookRotation(player.position - transform.position);
+        transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * rotationSpeed);
+        Debug.Log("Attack Player function");
+        enemyAttack.Attack();
     }
-    public bool getIsAttacking()
-    {
-        return isAttacking;
-    }
-    public void setIsAttacking(bool value)
+    public void SetIsAttacking(bool value)
     {
         isAttacking = value;
     }
@@ -186,11 +212,15 @@ public class BaseEnemyControle : MonoBehaviour
     {
         return curantState;
     }
+    public void SetAttackOneTime(bool value)
+    {
+        attackOneTime = value;
+    }
+
     private void OnDrawGizmosSelected()
     {
         Gizmos.color = Color.red;
-        Gizmos.DrawWireSphere(transform.position, attackRange);
-        Gizmos.color = Color.yellow;
+        Gizmos.DrawWireSphere(new Vector3(transform.position.x, transform.position.y + 1f, transform.position.z), attackRange);
         Gizmos.color = Color.blue;
         for (int i = 0; i < numberOfRaycasts; i++)
         {

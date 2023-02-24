@@ -12,13 +12,13 @@ GameObject:
   - component: {fileID: 33000011797248692}
   - component: {fileID: 23000012994476768}
   - component: {fileID: 64000012976037968}
-  - component: {fileID: 936169799065054688}
+  - component: {fileID: -3833357400374402517}
   m_Layer: 0
   m_Name: Hangar_v3_basic
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 40
   m_IsActive: 1
 --- !u!4 &4000010828360526
 Transform:
@@ -99,7 +99,7 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300006, guid: 165b285d8813c4b459ac04e83c94db1b, type: 3}
---- !u!208 &936169799065054688
+--- !u!208 &-3833357400374402517
 NavMeshObstacle:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -109,9 +109,9 @@ NavMeshObstacle:
   m_Enabled: 1
   serializedVersion: 3
   m_Shape: 1
-  m_Extents: {x: 5.4280005, y: 4.6790004, z: 6.7520003}
+  m_Extents: {x: 5.4280005, y: 3.52, z: 6.375}
   m_MoveThreshold: 0.1
-  m_Carve: 0
+  m_Carve: 1
   m_CarveOnlyStationary: 1
-  m_Center: {x: 0, y: 0, z: 0}
+  m_Center: {x: 0, y: -1.28, z: 0.38}
   m_TimeToStationary: 0.5
