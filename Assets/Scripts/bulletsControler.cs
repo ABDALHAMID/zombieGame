@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class bulletsControler : MonoBehaviour
 {
-    
     private GameObject whatWeHit;
     [SerializeField]
     private int damage;
@@ -23,8 +22,6 @@ public class bulletsControler : MonoBehaviour
 
         check = false;
 
-
-        
         
     }
 
@@ -49,7 +46,7 @@ public class bulletsControler : MonoBehaviour
                  * make un visual hit spote 
                  */
                 Debug.Log("we hit samething \n script \"bulletsControler\" not complet!!!");
-                Invoke(nameof(DestroyBulletAfter), 5f * Time.deltaTime);
+                Invoke(nameof(DestroyBulletAfter), 5);
             }
         }        
     }

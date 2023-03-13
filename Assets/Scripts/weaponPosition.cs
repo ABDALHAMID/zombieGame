@@ -23,21 +23,21 @@ public class weaponPosition : MonoBehaviour
     public Rigidbody weaponRb;
     public float recoilForce;
 
+    //hand poses
+    [SerializeField]
+    private Transform weaponLeftHandPose, weaponRightHandPose, publicLeftHandPose, publicRightHandPose;
+
+    private void Start()
+    {
+        
+    }
+
     private void Update()
     {
-        //Find the exact hit position using a raycast
-        Ray ray = fpsCam.ViewportPointToRay(new Vector3(0.5f, 0.5f, 0)); //Just a ray through the middle of your current view
-
-        //check if ray hits something
-        Vector3 targetPoint;
-        if (Physics.Raycast(ray, out RaycastHit hit))
-            targetPoint = hit.point;
-        else
-            targetPoint = ray.GetPoint(75);
-
-        Vector3 lookDir = targetPoint - transform.position;
-        Quaternion q = Quaternion.LookRotation(lookDir);
-        transform.rotation = Quaternion.RotateTowards(transform.rotation, q, Time.deltaTime);
+        publicLeftHandPose.position = weaponLeftHandPose.position;
+        publicRightHandPose.position = weaponRightHandPose.position;
+        publicLeftHandPose.rotation = weaponLeftHandPose.rotation;
+        publicRightHandPose.rotation = weaponRightHandPose.rotation;
     }
 
     public void setWeaponValue(GameObject _bullet, float _shootForce, float _upwardForce, float _timeBetweenShooting, float _spread,
@@ -58,6 +58,16 @@ public class weaponPosition : MonoBehaviour
         reloadTime = _reloadTime;
         timeBetweenShots = _timeBetweenShots;
         recoilForce = _recoilForce;
+        weaponLeftHandPose = GameObject.FindGameObjectWithTag("weaponLeftHandPose").transform;
+        weaponRightHandPose = GameObject.FindGameObjectWithTag("weaponRightHandPose").transform;
+        //PositionHands();
+    }
+    public void PositionHands()
+    {
+        publicLeftHandPose.position = weaponLeftHandPose.position;
+        publicRightHandPose.position = weaponRightHandPose.position;
+        publicLeftHandPose.rotation = weaponLeftHandPose.rotation;
+        publicRightHandPose.rotation = weaponRightHandPose.rotation;
     }
 
 }

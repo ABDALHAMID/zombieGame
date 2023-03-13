@@ -5,6 +5,7 @@ using TMPro;
 using UnityEngine.InputSystem;
 using Cinemachine;
 using StarterAssets;
+using UnityEngine.Animations.Rigging;
 
 public class weaponMnager : MonoBehaviour
 {
@@ -12,6 +13,7 @@ public class weaponMnager : MonoBehaviour
     [SerializeField] private StarterAssetsInputs input;
     [SerializeField] private LayerMask aimColliderLayerMask = new LayerMask();
     private ThirdPersonController thirdPersonController;
+    [SerializeField] private Rig aimLayerRig;
 
 
     Vector3 targetPoint;
@@ -32,7 +34,7 @@ public class weaponMnager : MonoBehaviour
     private int bulletsLeft, bulletsShot;
 
     //Recoil
-    private Rigidbody weaponRb;
+    //private Rigidbody weaponRb;
     private float recoilForce;
 
     //bools
@@ -44,7 +46,7 @@ public class weaponMnager : MonoBehaviour
 
     //Graphics
     private GameObject muzzleFlash;
-    public TextMeshProUGUI ammunitionDisplay;
+    //public TextMeshProUGUI ammunitionDisplay;
 
     //bug fixing :D
     private bool allowInvoke = true;
@@ -57,11 +59,13 @@ public class weaponMnager : MonoBehaviour
         //make sure magazine is full
         bulletsLeft = magazineSize;
         readyToShoot = true;
-        weaponRb = GetComponent<Rigidbody>();
+        //weaponRb = GetComponent<Rigidbody>();
+        
     }
 
     private void Update()
     {
+        aimLayerRig.weight = allowButtonHold ? Mathf.Lerp(0, 1, 0.2f) : Mathf.Lerp(1, 0, 0.2f);
         //Find the exact hit position using a raycast
         Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
         Ray ray = fpsCam.ScreenPointToRay(screenCenterPoint); //Just a ray through the middle of your current view
@@ -77,22 +81,24 @@ public class weaponMnager : MonoBehaviour
             thirdPersonController.SetRotateOnMove(false);
             playerAimCamera.gameObject.SetActive(true);
             RototeToTarget();
+            aimLayerRig.weight = 1f;
         }
         else
         {
             thirdPersonController.SetRotateOnMove(true);
             playerAimCamera.gameObject.SetActive(false);
+            aimLayerRig.weight = 0f;
         }
         MyInput();
 
-        //Set ammo display, if it exists :D
+        /*Set ammo display, if it exists :D
         if (bulletsPerTap == 0) bulletsPerTap += 1;
                 if (ammunitionDisplay != null)
                     ammunitionDisplay.SetText("amo : " + bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
 
+        */
 
-
-        weaponRb = weaponPosition.weaponRb;
+        //weaponRb = weaponPosition.weaponRb;
         attackPoint = weaponPosition.attackPoint;
         muzzleFlash = weaponPosition.muzzleFlash;
         allowButtonHold = weaponPosition.allowButtonHold;
@@ -147,7 +153,7 @@ public class weaponMnager : MonoBehaviour
         readyToShoot = false;
         if(!allowButtonHold) shooting = false;
 
-
+        aimLayerRig.weight = 1f;
         RototeToTarget();
         //Calculate direction from attackPoint to targetPoint
         Vector3 directionWithoutSpread = targetPoint - attackPoint.position;
@@ -186,7 +192,7 @@ public class weaponMnager : MonoBehaviour
             allowInvoke = false;
 
             //Add recoil to player (should only be called once)
-            weaponRb.AddForce(-directionWithSpread.normalized * recoilForce, ForceMode.Impulse);
+            //weaponRb.AddForce(-directionWithSpread.normalized * recoilForce, ForceMode.Impulse);
         }
 
         //if more than one bulletsPerTap make sure to repeat shoot function

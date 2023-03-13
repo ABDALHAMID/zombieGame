@@ -9,6 +9,8 @@ TagManager:
   - Enemy
   - Destroyerble
   - ground
+  - weaponLeftHandPose
+  - weaponRightHandPose
   layers:
   - Default
   - TransparentFX
