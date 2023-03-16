@@ -1,5 +1,36 @@
 %YAML 1.1
 %TAG !u! tag:unity3d.com,2011:
+--- !u!1 &1130634224457467286
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 950016718430873132}
+  m_Layer: 3
+  m_Name: grapPose
+  m_TagString: grapPose
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &950016718430873132
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1130634224457467286}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0.029, y: 0.184, z: -0.554}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 347167333475530841}
+  m_RootOrder: 4
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1138803834472231533
 GameObject:
   m_ObjectHideFlags: 0
@@ -9,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 935800082808559186}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: ShotPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -24,7 +55,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1138803834472231533}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.0007, y: 0.163, z: 1.227}
+  m_LocalPosition: {x: 0.029, y: 0.184, z: 1.227}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -40,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4257005636523976993}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: LeftHandPose
   m_TagString: weaponLeftHandPose
   m_Icon: {fileID: 0}
@@ -54,14 +85,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1709705268055753861}
-  m_LocalRotation: {x: -0.03670062, y: 0.68350685, z: -0.7280415, w: -0.03777587}
-  m_LocalPosition: {x: -0.258, y: 0.066, z: 0.51}
+  m_LocalRotation: {x: 0.049625993, y: 0.72907597, z: -0.6812928, w: 0.042727903}
+  m_LocalPosition: {x: -0.16129467, y: 0.109646976, z: 0.61960554}
   m_LocalScale: {x: 1, y: 1, z: 1.0000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 347167333475530841}
   m_RootOrder: 2
-  m_LocalEulerAnglesHint: {x: 86.39, y: 1.635, z: -184.406}
+  m_LocalEulerAnglesHint: {x: 93.912994, y: 4.468994, z: -184.077}
 --- !u!1 &3827172655362977056
 GameObject:
   m_ObjectHideFlags: 0
@@ -73,9 +104,9 @@ GameObject:
   - component: {fileID: 347167333475530841}
   - component: {fileID: 117714282460337348}
   - component: {fileID: 6120834267590747926}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: AK-47
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -89,13 +120,14 @@ Transform:
   m_GameObject: {fileID: 3827172655362977056}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1.0000001, y: 1, z: 0.5}
+  m_LocalScale: {x: 0.5, y: 0.5, z: 0.5}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 935800082808559186}
   - {fileID: 5031927750649227845}
   - {fileID: 4257005636523976993}
   - {fileID: 7092566199813850342}
+  - {fileID: 950016718430873132}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -112,13 +144,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 5006185252088699285, guid: 174a85b0801ae5e44a3d344be712f9df, type: 3}
-  shootForce: 50
+  shootForce: 30
   upwardForce: 0
-  timeBetweenShooting: 0.2
-  spread: 0.2
-  reloadTime: 5
-  timeBetweenShots: 0.5
-  magazineSize: 45
+  timeBetweenShooting: 0.5
+  spread: 0
+  reloadTime: 1
+  timeBetweenShots: 1
+  magazineSize: 100
   bulletsPerTap: 1
   allowButtonHold: 1
   muzzleFlash: {fileID: 1337198075554910, guid: 7fdf7016a044b4547abea8f4e96036b3,
@@ -151,7 +183,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7092566199813850342}
-  m_Layer: 0
+  m_Layer: 3
   m_Name: RightHandPose
   m_TagString: weaponRightHandPose
   m_Icon: {fileID: 0}
@@ -165,14 +197,14 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7732773687018992131}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.047, z: -0.3805}
+  m_LocalRotation: {x: 0, y: 0.7372774, z: 0, w: 0.67559016}
+  m_LocalPosition: {x: 0.055, y: -0.021000005, z: -0.195}
   m_LocalScale: {x: 1.0000001, y: 1, z: 1.0000001}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 347167333475530841}
   m_RootOrder: 3
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 95, z: 0}
 --- !u!1001 &5031927750649622725
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -184,6 +216,22 @@ PrefabInstance:
       propertyPath: m_Name
       value: Ak-47
       objectReference: {fileID: 0}
+    - target: {fileID: 100000, guid: cd8d56469cf64654eaa21e15c6ae7c18, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 100002, guid: cd8d56469cf64654eaa21e15c6ae7c18, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 100004, guid: cd8d56469cf64654eaa21e15c6ae7c18, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
+    - target: {fileID: 100006, guid: cd8d56469cf64654eaa21e15c6ae7c18, type: 3}
+      propertyPath: m_Layer
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cd8d56469cf64654eaa21e15c6ae7c18, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -194,11 +242,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cd8d56469cf64654eaa21e15c6ae7c18, type: 3}
       propertyPath: m_LocalPosition.x
-      value: 0
+      value: 0.028299998
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cd8d56469cf64654eaa21e15c6ae7c18, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 0.059
+      value: 0.08
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cd8d56469cf64654eaa21e15c6ae7c18, type: 3}
       propertyPath: m_LocalPosition.z

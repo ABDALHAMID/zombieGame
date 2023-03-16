@@ -11,6 +11,7 @@ TagManager:
   - ground
   - weaponLeftHandPose
   - weaponRightHandPose
+  - grapPose
   layers:
   - Default
   - TransparentFX

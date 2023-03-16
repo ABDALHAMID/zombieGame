@@ -14,9 +14,12 @@ public class weaponMnager : MonoBehaviour
     [SerializeField] private LayerMask aimColliderLayerMask = new LayerMask();
     private ThirdPersonController thirdPersonController;
     [SerializeField] private Rig aimLayerRig;
+       public MultiParentConstraint inMoveLayerRig;
+    public float weaponPoseTime = 0.2f;
 
 
     Vector3 targetPoint;
+    [SerializeField] private Transform aimPoint;
     private weaponPosition weaponPosition;
     //input system 
     [SerializeField] private InputActionReference shoot;
@@ -63,9 +66,8 @@ public class weaponMnager : MonoBehaviour
         
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        aimLayerRig.weight = allowButtonHold ? Mathf.Lerp(0, 1, 0.2f) : Mathf.Lerp(1, 0, 0.2f);
         //Find the exact hit position using a raycast
         Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
         Ray ray = fpsCam.ScreenPointToRay(screenCenterPoint); //Just a ray through the middle of your current view
@@ -76,18 +78,24 @@ public class weaponMnager : MonoBehaviour
         else
             targetPoint = ray.GetPoint(750); //Just a point far away from the player
 
+        aimPoint.position = targetPoint;
+
         if (input.aim)
         {
             thirdPersonController.SetRotateOnMove(false);
             playerAimCamera.gameObject.SetActive(true);
             RototeToTarget();
-            aimLayerRig.weight = 1f;
+            aimLayerRig.weight = Mathf.Lerp(aimLayerRig.weight, 1, weaponPoseTime);
+            inMoveLayerRig.weight = Mathf.LerpAngle(inMoveLayerRig.weight, 0, weaponPoseTime);
+            readyToShoot = true;
         }
         else
         {
             thirdPersonController.SetRotateOnMove(true);
             playerAimCamera.gameObject.SetActive(false);
-            aimLayerRig.weight = 0f;
+            aimLayerRig.weight = Mathf.Lerp(aimLayerRig.weight, 0, weaponPoseTime);
+            inMoveLayerRig.weight = Mathf.LerpAngle(inMoveLayerRig.weight, 1, weaponPoseTime);
+            readyToShoot = false;
         }
         MyInput();
 
@@ -153,7 +161,6 @@ public class weaponMnager : MonoBehaviour
         readyToShoot = false;
         if(!allowButtonHold) shooting = false;
 
-        aimLayerRig.weight = 1f;
         RototeToTarget();
         //Calculate direction from attackPoint to targetPoint
         Vector3 directionWithoutSpread = targetPoint - attackPoint.position;

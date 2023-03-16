@@ -2,7 +2,7 @@
 #if ENABLE_INPUT_SYSTEM 
 using UnityEngine.InputSystem;
 #endif
-
+using UnityEngine.Animations.Rigging;
 /* Note: animations are called via the controller for both the character and capsule using animator null checks
  */
 
@@ -75,6 +75,11 @@ namespace StarterAssets
         [Tooltip("For locking the camera position on all axis")]
         public bool LockCameraPosition = false;
 
+        [Tooltip("for the rigging layers you want to block in moving")]
+        public Rig[] idleRiggingLayers;
+        [Tooltip("for the rigging layers you want to alow in moving")]
+        public Rig[] moveRiggingLayers;
+
         // cinemachine
         private float _cinemachineTargetYaw;
         private float _cinemachineTargetPitch;
@@ -98,6 +103,8 @@ namespace StarterAssets
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
 
+        public weaponPosition weaponPosition;
+
 #if ENABLE_INPUT_SYSTEM 
         private PlayerInput _playerInput;
 #endif
@@ -110,6 +117,8 @@ namespace StarterAssets
         private const float _threshold = 0.01f;
 
         private bool _hasAnimator;
+
+        public float riggingAnimationSwitionTime;
 
         private bool IsCurrentDeviceMouse
         {
@@ -153,6 +162,10 @@ namespace StarterAssets
             _fallTimeoutDelta = FallTimeout;
         }
 
+        private void FixedUpdate()
+        {
+            
+        }
         private void Update()
         {
             _hasAnimator = TryGetComponent(out _animator);
@@ -160,6 +173,29 @@ namespace StarterAssets
             JumpAndGravity();
             GroundedCheck();
             Move();
+
+            if (_speed >= .1f)
+            {
+                foreach (Rig rigLayer in moveRiggingLayers)
+                {
+                    rigLayer.weight = Mathf.Lerp(rigLayer.weight, 1, riggingAnimationSwitionTime);
+                }
+                foreach (Rig rigLayer in idleRiggingLayers)
+                {
+                    rigLayer.weight = Mathf.Lerp(rigLayer.weight, 0, riggingAnimationSwitionTime);
+                }
+            }
+            else
+            {
+                foreach (Rig rigLayer in moveRiggingLayers)
+                {
+                    rigLayer.weight = Mathf.Lerp(rigLayer.weight, 0, riggingAnimationSwitionTime);
+                }
+                foreach (Rig rigLayer in idleRiggingLayers)
+                {
+                    rigLayer.weight = Mathf.Lerp(rigLayer.weight, 1, riggingAnimationSwitionTime);
+                }
+            }
         }
 
         private void LateUpdate()
@@ -217,6 +253,9 @@ namespace StarterAssets
             // set target speed based on move speed, sprint speed and if sprint is pressed
             float targetSpeed = _input.sprint ? SprintSpeed : MoveSpeed;
 
+            if(_input.aim) targetSpeed = MoveSpeed ;
+
+
             // a simplistic acceleration and deceleration designed to be easy to remove, replace, or iterate upon
 
             // note: Vector2's == operator uses approximation so is not floating point error prone, and is cheaper than magnitude
@@ -267,7 +306,7 @@ namespace StarterAssets
                 }
             }
 
-
+            
             Vector3 targetDirection = Quaternion.Euler(0.0f, _targetRotation, 0.0f) * Vector3.forward;
 
             // move the player
@@ -371,6 +410,7 @@ namespace StarterAssets
                 new Vector3(transform.position.x, transform.position.y - GroundedOffset, transform.position.z),
                 GroundedRadius);
         }
+       
 
         private void OnFootstep(AnimationEvent animationEvent)
         {

@@ -10,6 +10,8 @@ public class bulletsControler : MonoBehaviour
     //check if we can collide agame
     private bool check = true;
 
+    private Rigidbody rb;
+
 
     //get the information about the object hit by bullet
     private void OnCollisionEnter(Collision collision)
@@ -46,6 +48,7 @@ public class bulletsControler : MonoBehaviour
                  * make un visual hit spote 
                  */
                 Debug.Log("we hit samething \n script \"bulletsControler\" not complet!!!");
+                rb.useGravity = true;
                 Invoke(nameof(DestroyBulletAfter), 5);
             }
         }        

@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Animations.Rigging;
 
 public class weaponPosition : MonoBehaviour
 {
@@ -23,21 +24,19 @@ public class weaponPosition : MonoBehaviour
     public Rigidbody weaponRb;
     public float recoilForce;
 
+
     //hand poses
     [SerializeField]
-    private Transform weaponLeftHandPose, weaponRightHandPose, publicLeftHandPose, publicRightHandPose;
+    private Transform weaponLeftHandPose, weaponRightHandPose, weaponGrapPose, publicLeftHandPose, publicRightHandPose, publicGrapPose;
 
     private void Start()
     {
         
     }
 
-    private void Update()
+    private void FixedUpdate()
     {
-        publicLeftHandPose.position = weaponLeftHandPose.position;
-        publicRightHandPose.position = weaponRightHandPose.position;
-        publicLeftHandPose.rotation = weaponLeftHandPose.rotation;
-        publicRightHandPose.rotation = weaponRightHandPose.rotation;
+        PositionHands();
     }
 
     public void setWeaponValue(GameObject _bullet, float _shootForce, float _upwardForce, float _timeBetweenShooting, float _spread,
@@ -60,6 +59,7 @@ public class weaponPosition : MonoBehaviour
         recoilForce = _recoilForce;
         weaponLeftHandPose = GameObject.FindGameObjectWithTag("weaponLeftHandPose").transform;
         weaponRightHandPose = GameObject.FindGameObjectWithTag("weaponRightHandPose").transform;
+        weaponGrapPose = GameObject.FindGameObjectWithTag("grapPose").transform;
         //PositionHands();
     }
     public void PositionHands()
@@ -68,6 +68,9 @@ public class weaponPosition : MonoBehaviour
         publicRightHandPose.position = weaponRightHandPose.position;
         publicLeftHandPose.rotation = weaponLeftHandPose.rotation;
         publicRightHandPose.rotation = weaponRightHandPose.rotation;
-    }
+        Vector3 offcet = weaponGrapPose.position;
+        weaponGrapPose.position = publicGrapPose.position;
+        weaponGrapPose.rotation = publicGrapPose.rotation;
 
+    }
 }
