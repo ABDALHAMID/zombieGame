@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class bulletsControler : MonoBehaviour
 {
-    private GameObject whatWeHit;
     [SerializeField]
     private int damage;
     //check if we can collide agame
@@ -13,14 +12,18 @@ public class bulletsControler : MonoBehaviour
     private Rigidbody rb;
 
 
+    private void Start()
+    {
+        rb = gameObject.GetComponent<Rigidbody>();
+    }
     //get the information about the object hit by bullet
     private void OnCollisionEnter(Collision collision)
     {
         //get what object we hit
-        whatWeHit = collision.gameObject;
+        GameObject whatWeHit = collision.gameObject;
 
         //run damage function
-        DoDamage();
+        DoDamage(whatWeHit);
 
         check = false;
 
@@ -28,7 +31,7 @@ public class bulletsControler : MonoBehaviour
     }
 
     //damage function
-    private void DoDamage()
+    private void DoDamage(GameObject whatWeHit)
     {
         //check if we hit something for the first time
         if(check && whatWeHit != null)

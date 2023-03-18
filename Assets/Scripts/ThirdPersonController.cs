@@ -120,6 +120,8 @@ namespace StarterAssets
 
         public float riggingAnimationSwitionTime;
 
+        public bool animationRigginDone;
+
         private bool IsCurrentDeviceMouse
         {
             get
@@ -162,6 +164,9 @@ namespace StarterAssets
             _fallTimeoutDelta = FallTimeout;
         }
 
+            
+            
+        
         private void FixedUpdate()
         {
             
@@ -184,8 +189,9 @@ namespace StarterAssets
                 {
                     rigLayer.weight = Mathf.Lerp(rigLayer.weight, 0, riggingAnimationSwitionTime);
                 }
+                animationRigginDone = false;
             }
-            else
+            else if (!animationRigginDone)
             {
                 foreach (Rig rigLayer in moveRiggingLayers)
                 {
@@ -195,7 +201,11 @@ namespace StarterAssets
                 {
                     rigLayer.weight = Mathf.Lerp(rigLayer.weight, 1, riggingAnimationSwitionTime);
                 }
+                if (idleRiggingLayers[2].weight >= 0.9)
+                    animationRigginDone = true;
             }
+
+
         }
 
         private void LateUpdate()

@@ -53,6 +53,7 @@ public class weaponMnager : MonoBehaviour
 
     //bug fixing :D
     private bool allowInvoke = true;
+    private bool isAimming;
 
     private void Awake()
     {
@@ -87,7 +88,7 @@ public class weaponMnager : MonoBehaviour
             RototeToTarget();
             aimLayerRig.weight = Mathf.Lerp(aimLayerRig.weight, 1, weaponPoseTime);
             inMoveLayerRig.weight = Mathf.LerpAngle(inMoveLayerRig.weight, 0, weaponPoseTime);
-            readyToShoot = true;
+            isAimming = true;
         }
         else
         {
@@ -95,7 +96,7 @@ public class weaponMnager : MonoBehaviour
             playerAimCamera.gameObject.SetActive(false);
             aimLayerRig.weight = Mathf.Lerp(aimLayerRig.weight, 0, weaponPoseTime);
             inMoveLayerRig.weight = Mathf.LerpAngle(inMoveLayerRig.weight, 1, weaponPoseTime);
-            readyToShoot = false;
+            isAimming = false;
         }
         MyInput();
 
@@ -147,7 +148,7 @@ public class weaponMnager : MonoBehaviour
         if (readyToShoot && shooting && !reloading && bulletsLeft <= 0) Reload();
 
         //Shooting
-        if (readyToShoot && shooting && !reloading && bulletsLeft > 0)
+        if (readyToShoot && shooting && !reloading && bulletsLeft > 0 && isAimming)
         {
             //Set bullets shot to 0
             bulletsShot = 0;
