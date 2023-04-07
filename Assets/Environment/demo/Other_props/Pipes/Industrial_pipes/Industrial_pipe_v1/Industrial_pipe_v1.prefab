@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23000010334274326}
   - component: {fileID: 64000010087940188}
   - component: {fileID: 7070917910353793472}
+  - component: {fileID: 6275607942256481559}
   m_Layer: 0
   m_Name: Industrial_pipe_v1
   m_TagString: Untagged
@@ -115,3 +116,17 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: -0.032, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &6275607942256481559
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012270689622}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e95a320997abc44182beace4101f808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletHole: {fileID: 4712018152499560242, guid: e8bff3432dd41fd45b900b5885731b04,
+    type: 3}

@@ -9,7 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 3127464763469177929}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: LeftHandPose
   m_TagString: weaponLeftHandPose
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2056369885858798394}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: ShotPoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 2285797530457915141}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0.029, y: 0.184, z: 1.312}
+  m_LocalPosition: {x: 0.029, y: 0.184, z: 1.32}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -71,7 +71,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 2115059735298861892}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: grapPose
   m_TagString: grapPose
   m_Icon: {fileID: 0}
@@ -104,7 +104,7 @@ GameObject:
   - component: {fileID: 1487439577413383473}
   - component: {fileID: 1285536040080153004}
   - component: {fileID: 4937215014671067774}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: AK-47
   m_TagString: Player
   m_Icon: {fileID: 0}
@@ -144,12 +144,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 5006185252088699285, guid: 174a85b0801ae5e44a3d344be712f9df, type: 3}
-  shootForce: 50
+  shootForce: 150
   upwardForce: 0
   timeBetweenShooting: 0.2
   spread: 0
   reloadTime: 0
-  timeBetweenShots: 0.4
+  timeBetweenShots: 0.3
   magazineSize: 50
   bulletsPerTap: 1
   allowButtonHold: 1
@@ -183,7 +183,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 8221545226664249742}
-  m_Layer: 3
+  m_Layer: 10
   m_Name: RightHandPose
   m_TagString: weaponRightHandPose
   m_Icon: {fileID: 0}
@@ -218,19 +218,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: cd8d56469cf64654eaa21e15c6ae7c18, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 100002, guid: cd8d56469cf64654eaa21e15c6ae7c18, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 100004, guid: cd8d56469cf64654eaa21e15c6ae7c18, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 100006, guid: cd8d56469cf64654eaa21e15c6ae7c18, type: 3}
       propertyPath: m_Layer
-      value: 3
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: cd8d56469cf64654eaa21e15c6ae7c18, type: 3}
       propertyPath: m_RootOrder

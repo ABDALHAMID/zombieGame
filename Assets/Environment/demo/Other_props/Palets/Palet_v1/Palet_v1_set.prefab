@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33000010272957428}
   - component: {fileID: 23000013416702298}
   - component: {fileID: 64000011041005592}
+  - component: {fileID: -4953677202702850377}
   m_Layer: 0
   m_Name: Palet_v1_set
   m_TagString: Untagged
@@ -98,3 +99,17 @@ MeshCollider:
   m_Convex: 1
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300006, guid: a0fa3deee73af2b49bf7f84e4421e5be, type: 3}
+--- !u!114 &-4953677202702850377
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013871382564}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e95a320997abc44182beace4101f808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletHole: {fileID: 1881703945624342062, guid: 944ca7eec9f87f8478c12d592ee4df5a,
+    type: 3}

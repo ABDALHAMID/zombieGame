@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33000013021779330}
   - component: {fileID: 23000011087673466}
   - component: {fileID: 65000013880354276}
+  - component: {fileID: 3045702869202166310}
   m_Layer: 0
   m_Name: Pipes_set_v1_V_set_v2
   m_TagString: Untagged
@@ -97,3 +98,16 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.1618738, y: 5.686723, z: 1.7331104}
   m_Center: {x: 0, y: 0, z: 0.00000014901161}
+--- !u!114 &3045702869202166310
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013497408264}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e95a320997abc44182beace4101f808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletHole: {fileID: 1533138625715334, guid: 61bb62591466c3649bdf4905822d72f6, type: 3}

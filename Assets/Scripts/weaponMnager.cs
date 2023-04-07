@@ -21,7 +21,7 @@ public class weaponMnager : MonoBehaviour
     Vector3 targetPoint;
     [SerializeField] private Transform aimPoint;
     private weaponPosition weaponPosition;
-    //input system 
+    //input system  
     [SerializeField] private InputActionReference shoot;
     //bullet 
     private GameObject bullet;

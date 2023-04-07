@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 4000011416029138}
   - component: {fileID: 33000010338410794}
   - component: {fileID: 23000012320406836}
+  - component: {fileID: -728449929310243755}
   m_Layer: 0
   m_Name: Pipes_set_v1_vent_1
   m_TagString: Untagged
@@ -83,3 +84,16 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!114 &-728449929310243755
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010005835110}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e95a320997abc44182beace4101f808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletHole: {fileID: 1533138625715334, guid: 61bb62591466c3649bdf4905822d72f6, type: 3}

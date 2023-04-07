@@ -9,6 +9,9 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000014133883218}
+  - component: {fileID: 2944547567163231069}
+  - component: {fileID: 4036077199255602417}
+  - component: {fileID: 6667923729637581563}
   m_Layer: 0
   m_Name: Concrete_fence_v2_Gate
   m_TagString: Untagged
@@ -33,6 +36,46 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!65 &2944547567163231069
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012433200114}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5433835, y: 1.0262842, z: 0.49438834}
+  m_Center: {x: 0.0017589331, y: -1.1140501, z: 2.5891442}
+--- !u!65 &4036077199255602417
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012433200114}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.5433835, y: 1.0262842, z: 0.49438834}
+  m_Center: {x: 0.0017589331, y: -1.1140501, z: -2.59}
+--- !u!114 &6667923729637581563
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012433200114}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e95a320997abc44182beace4101f808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletHole: {fileID: 4712018152499560242, guid: e8bff3432dd41fd45b900b5885731b04,
+    type: 3}
 --- !u!1 &1000013948420292
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,6 +88,7 @@ GameObject:
   - component: {fileID: 33000012010456290}
   - component: {fileID: 23000013636385150}
   - component: {fileID: 64000014045595570}
+  - component: {fileID: 135350107080985608}
   m_Layer: 0
   m_Name: Concrete_fence_v2_Gate_lattice
   m_TagString: Untagged
@@ -131,6 +175,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300026, guid: ed9ec036e5afbd34dae4f1602a3d77b8, type: 3}
+--- !u!114 &135350107080985608
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013948420292}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e95a320997abc44182beace4101f808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletHole: {fileID: 5950911892423802065, guid: 3b4f6b36a340ed34fad6fdf9fb15f1a7,
+    type: 3}
 --- !u!1 &1000014215199998
 GameObject:
   m_ObjectHideFlags: 0

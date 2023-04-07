@@ -9,6 +9,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000010230679374}
+  - component: {fileID: -6616831724823305418}
   m_Layer: 0
   m_Name: Concrete_fence_v2_S
   m_TagString: Untagged
@@ -33,6 +34,20 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &-6616831724823305418
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013039883512}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}
 --- !u!1 &1000013693227596
 GameObject:
   m_ObjectHideFlags: 0
@@ -45,6 +60,7 @@ GameObject:
   - component: {fileID: 33000014169494080}
   - component: {fileID: 23000014090315290}
   - component: {fileID: 65000012913242684}
+  - component: {fileID: 1045222981999414816}
   m_Layer: 0
   m_Name: Concrete_fence_v2_S
   m_TagString: Untagged
@@ -130,6 +146,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5380497, y: 1.0200385, z: 5.6724796}
   m_Center: {x: -0.0000019073484, y: -0.7727375, z: -0.000003814698}
+--- !u!114 &1045222981999414816
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000013693227596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e95a320997abc44182beace4101f808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletHole: {fileID: 4712018152499560242, guid: e8bff3432dd41fd45b900b5885731b04,
+    type: 3}
 --- !u!1 &1000014037010034
 GameObject:
   m_ObjectHideFlags: 0
@@ -142,6 +172,7 @@ GameObject:
   - component: {fileID: 33000012874370198}
   - component: {fileID: 23000011800568128}
   - component: {fileID: 65000010613152302}
+  - component: {fileID: 984888595754513700}
   m_Layer: 0
   m_Name: Concrete_fence_v2_lattice_S
   m_TagString: Untagged
@@ -227,3 +258,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0, y: 1.4342282, z: 5.672476}
   m_Center: {x: 0, y: -0.000000029802322, z: 0}
+--- !u!114 &984888595754513700
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000014037010034}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e95a320997abc44182beace4101f808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletHole: {fileID: 5950911892423802065, guid: 3b4f6b36a340ed34fad6fdf9fb15f1a7,
+    type: 3}

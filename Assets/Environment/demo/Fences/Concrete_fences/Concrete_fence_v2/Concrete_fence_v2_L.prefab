@@ -45,6 +45,7 @@ GameObject:
   - component: {fileID: 33000012639821618}
   - component: {fileID: 23000013700982860}
   - component: {fileID: 64000010413768088}
+  - component: {fileID: 268411978032368175}
   m_Layer: 0
   m_Name: Concrete_fence_v2_L
   m_TagString: Untagged
@@ -131,6 +132,20 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300010, guid: ed9ec036e5afbd34dae4f1602a3d77b8, type: 3}
+--- !u!114 &268411978032368175
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011211479386}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e95a320997abc44182beace4101f808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletHole: {fileID: 4712018152499560242, guid: e8bff3432dd41fd45b900b5885731b04,
+    type: 3}
 --- !u!1 &1000012361127368
 GameObject:
   m_ObjectHideFlags: 0
@@ -143,6 +158,7 @@ GameObject:
   - component: {fileID: 33000013183271066}
   - component: {fileID: 23000014290354140}
   - component: {fileID: 64000011381781962}
+  - component: {fileID: 5133084916659030589}
   m_Layer: 0
   m_Name: Concrete_fence_v2_lattice_L
   m_TagString: Untagged
@@ -229,3 +245,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300014, guid: ed9ec036e5afbd34dae4f1602a3d77b8, type: 3}
+--- !u!114 &5133084916659030589
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012361127368}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e95a320997abc44182beace4101f808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletHole: {fileID: 5950911892423802065, guid: 3b4f6b36a340ed34fad6fdf9fb15f1a7,
+    type: 3}

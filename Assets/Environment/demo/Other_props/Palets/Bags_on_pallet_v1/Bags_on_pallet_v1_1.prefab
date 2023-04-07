@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33000013908652786}
   - component: {fileID: 23000012969972070}
   - component: {fileID: 65000011862334458}
+  - component: {fileID: -8500000907989530531}
   m_Layer: 0
   m_Name: Bags_on_pallet_v1_1
   m_TagString: Untagged
@@ -97,3 +98,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 2.4977179, y: 2.5346947, z: 1.6031036}
   m_Center: {x: 0.00000333786, y: 1.2653635, z: 0}
+--- !u!114 &-8500000907989530531
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012006241372}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e95a320997abc44182beace4101f808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletHole: {fileID: 1881703945624342062, guid: 944ca7eec9f87f8478c12d592ee4df5a,
+    type: 3}

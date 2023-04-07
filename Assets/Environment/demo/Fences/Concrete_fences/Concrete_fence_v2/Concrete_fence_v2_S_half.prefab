@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33000012312112606}
   - component: {fileID: 23000010806834822}
   - component: {fileID: 65000010288613760}
+  - component: {fileID: 792553783230678061}
   m_Layer: 0
   m_Name: Concrete_fence_v2_S_half
   m_TagString: Untagged
@@ -97,6 +98,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0.5380497, y: 1.0182931, z: 2.8362422}
   m_Center: {x: 0, y: -0.7736244, z: 0.0000038146973}
+--- !u!114 &792553783230678061
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010512318482}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e95a320997abc44182beace4101f808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletHole: {fileID: 4712018152499560242, guid: e8bff3432dd41fd45b900b5885731b04,
+    type: 3}
 --- !u!1 &1000012505609968
 GameObject:
   m_ObjectHideFlags: 0
@@ -109,6 +124,7 @@ GameObject:
   - component: {fileID: 33000013287804068}
   - component: {fileID: 23000011976131692}
   - component: {fileID: 65000011252498410}
+  - component: {fileID: 87507662938337265}
   m_Layer: 0
   m_Name: Concrete_fence_v2_lattice_S_half
   m_TagString: Untagged
@@ -194,6 +210,20 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 0, y: 1.4342281, z: 2.80504}
   m_Center: {x: 0, y: -0.000000059604645, z: 0}
+--- !u!114 &87507662938337265
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012505609968}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e95a320997abc44182beace4101f808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletHole: {fileID: 5950911892423802065, guid: 3b4f6b36a340ed34fad6fdf9fb15f1a7,
+    type: 3}
 --- !u!1 &1000012516067446
 GameObject:
   m_ObjectHideFlags: 0
@@ -203,6 +233,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 4000010482363180}
+  - component: {fileID: -8335881211704339714}
   m_Layer: 0
   m_Name: Concrete_fence_v2_S_half
   m_TagString: Untagged
@@ -227,3 +258,17 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!64 &-8335881211704339714
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012516067446}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 0}

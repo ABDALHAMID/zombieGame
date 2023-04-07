@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 33000011596982636}
   - component: {fileID: 23000011803730826}
   - component: {fileID: 65000011504597616}
+  - component: {fileID: -6921689940574217822}
+  - component: {fileID: -7967583353100488969}
   m_Layer: 0
   m_Name: Electric_box_v1
   m_TagString: Untagged
@@ -97,3 +99,29 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.2119317, y: 1.4367304, z: 0.39957333}
   m_Center: {x: 0.00000011920929, y: 0, z: -0.00000023841858}
+--- !u!114 &-6921689940574217822
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011804541950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e95a320997abc44182beace4101f808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletHole: {fileID: 1000011396044746, guid: 96b2ec0239d11fa4b9792311efceb8ed, type: 3}
+--- !u!114 &-7967583353100488969
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011804541950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e95a320997abc44182beace4101f808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletHole: {fileID: 0}

@@ -10,8 +10,6 @@ public class EnemyHitObjectScript : MonoBehaviour
     private void OnCollisionEnter(Collision collision)
     {
         hitedObject = collision.gameObject;
-        
-        Debug.Log(hitedObject.gameObject);
     }
     public GameObject GetHitedObject()
     {

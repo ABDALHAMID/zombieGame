@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 33000013946838628}
   - component: {fileID: 23000013306147162}
   - component: {fileID: 64000011913646830}
+  - component: {fileID: 2579514038181956951}
   m_Layer: 0
   m_Name: Concrete_fence_v1_L1
   m_TagString: Untagged
@@ -98,3 +99,17 @@ MeshCollider:
   m_Convex: 0
   m_CookingOptions: 30
   m_Mesh: {fileID: 4300030, guid: 3a8f58244ff42dd4687b2e136c464c50, type: 3}
+--- !u!114 &2579514038181956951
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012990547510}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e95a320997abc44182beace4101f808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletHole: {fileID: 4712018152499560242, guid: e8bff3432dd41fd45b900b5885731b04,
+    type: 3}

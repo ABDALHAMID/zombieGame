@@ -12,6 +12,8 @@ GameObject:
   - component: {fileID: 33000013375837800}
   - component: {fileID: 23000011935745546}
   - component: {fileID: -1385500524589210727}
+  - component: {fileID: -2564717420772994549}
+  - component: {fileID: -4418456692296379564}
   m_Layer: 0
   m_Name: Hangar_v2_5
   m_TagString: Untagged
@@ -100,3 +102,31 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: 2.33, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &-2564717420772994549
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012547365778}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e95a320997abc44182beace4101f808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletHole: {fileID: 5950911892423802065, guid: 3b4f6b36a340ed34fad6fdf9fb15f1a7,
+    type: 3}
+--- !u!64 &-4418456692296379564
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012547365778}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: b5104adc4fe5dfa47ab50f592c743a9e, type: 3}

@@ -13,6 +13,7 @@ GameObject:
   - component: {fileID: 23000013965629674}
   - component: {fileID: 64000011000010816}
   - component: {fileID: 8597876358430863805}
+  - component: {fileID: 4564005471982466818}
   m_Layer: 0
   m_Name: Object089
   m_TagString: Untagged
@@ -115,6 +116,20 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: -0.27, y: -0.88, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &4564005471982466818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000010491514970}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e95a320997abc44182beace4101f808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletHole: {fileID: 5950911892423802065, guid: 3b4f6b36a340ed34fad6fdf9fb15f1a7,
+    type: 3}
 --- !u!1 &1000011254384922
 GameObject:
   m_ObjectHideFlags: 0
@@ -128,6 +143,7 @@ GameObject:
   - component: {fileID: 23000011836317424}
   - component: {fileID: 64000014232975922}
   - component: {fileID: 8017395767089442950}
+  - component: {fileID: 6156925631308376636}
   m_Layer: 0
   m_Name: Object086
   m_TagString: Untagged
@@ -230,6 +246,20 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: -1.45, z: 0.4}
   m_TimeToStationary: 0.5
+--- !u!114 &6156925631308376636
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000011254384922}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e95a320997abc44182beace4101f808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletHole: {fileID: 5950911892423802065, guid: 3b4f6b36a340ed34fad6fdf9fb15f1a7,
+    type: 3}
 --- !u!1 &1000012491009290
 GameObject:
   m_ObjectHideFlags: 0
@@ -243,6 +273,7 @@ GameObject:
   - component: {fileID: 23000012025676550}
   - component: {fileID: 64000012037115136}
   - component: {fileID: 5180568371493576309}
+  - component: {fileID: 879086954830037277}
   m_Layer: 0
   m_Name: Object1040
   m_TagString: Untagged
@@ -345,6 +376,20 @@ NavMeshObstacle:
   m_CarveOnlyStationary: 1
   m_Center: {x: 0, y: -0.92, z: 0}
   m_TimeToStationary: 0.5
+--- !u!114 &879086954830037277
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1000012491009290}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e95a320997abc44182beace4101f808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletHole: {fileID: 5950911892423802065, guid: 3b4f6b36a340ed34fad6fdf9fb15f1a7,
+    type: 3}
 --- !u!1 &1000013012713382
 GameObject:
   m_ObjectHideFlags: 0

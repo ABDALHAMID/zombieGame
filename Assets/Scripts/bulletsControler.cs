@@ -11,30 +11,33 @@ public class bulletsControler : MonoBehaviour
 
     private Rigidbody rb;
 
-
-    private void Start()
+    private void Awake()
     {
         rb = gameObject.GetComponent<Rigidbody>();
     }
     //get the information about the object hit by bullet
     private void OnCollisionEnter(Collision collision)
     {
-        //get what object we hit
-        GameObject whatWeHit = collision.gameObject;
+        Debug.Log(collision.gameObject);
 
-        //run damage function
-        DoDamage(whatWeHit);
+        if (check)
+        {
 
-        check = false;
+            //get what object we hit
+            GameObject whatWeHit = collision.gameObject;
+            if(whatWeHit.GetComponent<PrefabVariabels>()) MakeBulletHole(whatWeHit, collision);
+            //run damage function
+            DoDamage(whatWeHit);
 
-        
+            check = false;
+        }  
     }
 
     //damage function
     private void DoDamage(GameObject whatWeHit)
     {
         //check if we hit something for the first time
-        if(check && whatWeHit != null)
+        if(whatWeHit != null)
         {
             //check if he can take damge
             if (whatWeHit.CompareTag("Enemy") || whatWeHit.CompareTag("Destroyerble"))
@@ -52,7 +55,7 @@ public class bulletsControler : MonoBehaviour
                  */
                 Debug.Log("we hit samething \n script \"bulletsControler\" not complet!!!");
                 rb.useGravity = true;
-                Invoke(nameof(DestroyBulletAfter), 5);
+                Invoke(nameof(DestroyBulletAfter), 1f);
             }
         }        
     }
@@ -62,6 +65,16 @@ public class bulletsControler : MonoBehaviour
         //--!!!!!!!!!!!!!!!!!!important--
         //replace this with the pool of object when we have it
         Destroy(this.gameObject);
+    }
+
+    //put the bullet hole in the collision point
+    private void MakeBulletHole(GameObject whatWeHit, Collision collision)
+    {
+        GameObject bulletHolePrefab = whatWeHit.GetComponent<PrefabVariabels>().bulletHole;
+        ContactPoint contact = collision.GetContact(0);
+        Quaternion rotation = Quaternion.FromToRotation(Vector3.forward, contact.normal);
+        Instantiate(bulletHolePrefab, contact.point + new Vector3(0, 0, 0.15f), rotation);
+    
     }
     private int GetDamage()
     {

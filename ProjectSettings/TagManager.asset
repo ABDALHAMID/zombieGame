@@ -12,6 +12,7 @@ TagManager:
   - weaponLeftHandPose
   - weaponRightHandPose
   - grapPose
+  - Laser
   layers:
   - Default
   - TransparentFX
@@ -23,7 +24,7 @@ TagManager:
   - 
   - Character
   - Ground
-  - 
+  - Weapon
   - 
   - 
   - 

@@ -15,6 +15,7 @@ GameObject:
   - component: {fileID: 8341267881055857839}
   - component: {fileID: 8341267881055857832}
   - component: {fileID: 8989039676002649305}
+  - component: {fileID: 1488889871503643318}
   m_Layer: 0
   m_Name: RugularZombiePrefab
   m_TagString: Enemy
@@ -147,6 +148,20 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hitObjects:
   - {fileID: 4634867102043257771}
+--- !u!114 &1488889871503643318
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8341267881055857825}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e95a320997abc44182beace4101f808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletHole: {fileID: 86262937696846720, guid: 89252a6b58383fc489f69eca86893601,
+    type: 3}
 --- !u!1001 &2437008968614622485
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -158,6 +173,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: RugularZombieGraphics 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 1732663876722040944, guid: acee037e1b548054ba18a5fcc586c087,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
       objectReference: {fileID: 0}
     - target: {fileID: 3805982984152168603, guid: acee037e1b548054ba18a5fcc586c087,
         type: 3}
@@ -229,6 +249,11 @@ PrefabInstance:
       propertyPath: m_Avatar
       value: 
       objectReference: {fileID: 9000000, guid: 8f7380da49034cd488ddff94b1ac35d1, type: 3}
+    - target: {fileID: 7964388428325901596, guid: acee037e1b548054ba18a5fcc586c087,
+        type: 3}
+      propertyPath: m_Icon
+      value: 
+      objectReference: {fileID: 0}
     - target: {fileID: 9017713327539741071, guid: acee037e1b548054ba18a5fcc586c087,
         type: 3}
       propertyPath: m_IsKinematic
