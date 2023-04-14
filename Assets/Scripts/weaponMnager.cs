@@ -31,17 +31,18 @@ public class weaponMnager : MonoBehaviour
 
     //Gun stats
     private float timeBetweenShooting, spread, reloadTime, timeBetweenShots;
-    private int magazineSize, bulletsPerTap;
+    public int magazineSize, bulletsPerTap, bulletsLeft;
     private bool allowButtonHold;
 
-    private int bulletsLeft, bulletsShot;
+    private int  bulletsShot;
 
     //Recoil
     //private Rigidbody weaponRb;
     private float recoilForce;
 
     //bools
-    private bool shooting, readyToShoot, reloading;
+    private bool shooting, readyToShoot;
+    public bool reloading;
 
     //Reference
     [SerializeField] private Camera fpsCam;
@@ -100,12 +101,6 @@ public class weaponMnager : MonoBehaviour
         }
         MyInput();
 
-        /*Set ammo display, if it exists :D
-        if (bulletsPerTap == 0) bulletsPerTap += 1;
-                if (ammunitionDisplay != null)
-                    ammunitionDisplay.SetText("amo : " + bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
-
-        */
 
         //weaponRb = weaponPosition.weaponRb;
         attackPoint = weaponPosition.attackPoint;

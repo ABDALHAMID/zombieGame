@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8161966548672865762}
   - component: {fileID: 4585848516653658257}
   - component: {fileID: 9022905994641390319}
-  m_Layer: 0
+  m_Layer: 10
   m_Name: bullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -106,7 +106,7 @@ TrailRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Time: 0.2
+  m_Time: 0.1
   m_Parameters:
     serializedVersion: 3
     widthMultiplier: 0.025
@@ -258,6 +258,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -5833661098405571102, guid: 14c540da760940c4289c2bca55fef6b6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: -4157524182732408741, guid: 14c540da760940c4289c2bca55fef6b6,
         type: 3}
       propertyPath: m_CastShadows
@@ -273,10 +278,20 @@ PrefabInstance:
       propertyPath: m_Materials.Array.data[0]
       value: 
       objectReference: {fileID: 2100000, guid: 5454e0ca8933e7e488d741b41a118196, type: 2}
+    - target: {fileID: -259972160606440404, guid: 14c540da760940c4289c2bca55fef6b6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 919132149155446097, guid: 14c540da760940c4289c2bca55fef6b6,
         type: 3}
       propertyPath: m_Name
       value: untitled
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 14c540da760940c4289c2bca55fef6b6,
+        type: 3}
+      propertyPath: m_Layer
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 8787908849352107688, guid: 14c540da760940c4289c2bca55fef6b6,
         type: 3}

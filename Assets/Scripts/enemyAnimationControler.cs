@@ -6,8 +6,8 @@ using UnityEngine.Animations;
 public class enemyAnimationControler : MonoBehaviour
 {
     private BaseEnemyControle enemyControle;
-    private healthSystem healthSystem;
-    private enemyAttacks enemyAttacks;
+    private HealthSystem healthSystem;
+    private EnemyAttacks enemyAttacks;
     private Animator anim;
     private int enemyState;
     private bool checkForAnimationEnd = false;
@@ -17,9 +17,9 @@ public class enemyAnimationControler : MonoBehaviour
     private void Awake()
     {
         enemyControle = GetComponent<BaseEnemyControle>();
-        enemyAttacks = GetComponent<enemyAttacks>();
+        enemyAttacks = GetComponent<EnemyAttacks>();
         anim = GetComponentInChildren<Animator>();
-        healthSystem = GetComponent<healthSystem>();
+        healthSystem = GetComponent<HealthSystem>();
     }
 
     // Update is called once per frame
@@ -29,7 +29,7 @@ public class enemyAnimationControler : MonoBehaviour
         if (healthSystem.GetIsDead()) enemyState = 0;
         else if (enemyAttacks.GetIsAtacking()) enemyState = enemyAttacks.GetCurantState();
 
-        else enemyState = enemyControle.getCurantState();
+        else enemyState = enemyControle.GetCurantState();
         anim.SetInteger("State", enemyState);
 
         foreach (string attackAnimationName in attackAnimationName)

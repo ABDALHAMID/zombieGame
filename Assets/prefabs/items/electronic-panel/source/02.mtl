@@ -1,0 +1,217 @@
+newmtl __initialShadingGroup
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 02__initialShadingGroup_BaseColor.tga
+Ni 1.00
+Ks 0.00 0.00 0.00
+map_Ks 02__initialShadingGroup_Roughness.tga
+Ns 100.00
+newmtl __initialShadingGroup2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 02__initialShadingGroup2_BaseColor.tga
+Ni 1.00
+Ks 0.00 0.00 0.00
+map_Ks 02__initialShadingGroup2_Roughness.tga
+Ns 100.00
+newmtl __lambert2SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 02__lambert2SG_BaseColor.tga
+Ni 1.00
+Ks 0.00 0.00 0.00
+map_Ks 02__lambert2SG_Roughness.tga
+Ns 100.00
+newmtl __lambert3SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 02__lambert3SG_BaseColor.tga
+Ni 1.00
+Ks 0.00 0.00 0.00
+map_Ks 02__lambert3SG_Roughness.tga
+Ns 100.00
+newmtl __lambert5SG2
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd fc52b8d1d01c9bbc4d3690ed73269306.jpg
+Ni 1.00
+Ks 0.00 0.00 0.00
+map_Ks 02__lambert5SG2_Roughness.tga
+Ns 100.00
+newmtl _anisotropic1SG4
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 02_detal:anisotropic1SG_BaseColor.tga
+Ni 1.00
+Ks 0.00 0.00 0.00
+map_Ks 02_detal:anisotropic1SG_Roughness.tga
+Ns 100.00
+newmtl _blinn1SG4
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 02_detal:blinn1SG_BaseColor.tga
+Ni 1.00
+Ks 0.00 0.00 0.00
+map_Ks 02_detal:blinn1SG_Roughness.tga
+Ns 100.00
+newmtl _initialShadingGroup
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 02_BaseColor.tga
+Ni 1.00
+Ks 0.00 0.00 0.00
+map_Ks 02_Roughness.tga
+Ns 100.00
+newmtl _lambert2SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 02_BaseColor.tga
+Ni 1.00
+Ks 0.00 0.00 0.00
+map_Ks 02_Roughness.tga
+Ns 100.00
+newmtl _lambert2SG4
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 02_lambert2SG_BaseColor.tga
+Ni 1.00
+Ks 0.00 0.00 0.00
+map_Ks 02_lambert2SG_Roughness.tga
+Ns 100.00
+newmtl _lambert3SG4
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 02_lambert3SG_BaseColor.tga
+Ni 1.00
+Ks 0.00 0.00 0.00
+map_Ks 02_lambert3SG_Roughness.tga
+Ns 100.00
+newmtl _lambert4SG4
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 02_lambert4SG_BaseColor.tga
+Ni 1.00
+Ks 0.00 0.00 0.00
+map_Ks 02_lambert4SG_Roughness.tga
+Ns 100.00
+newmtl _lambert4SG6
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 02_detal:lambert4SG_BaseColor.tga
+Ni 1.00
+Ks 0.00 0.00 0.00
+map_Ks 02_detal:lambert4SG_Roughness.tga
+Ns 100.00
+newmtl _lambert5SG4
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 02_lambert5SG_BaseColor.tga
+Ni 1.00
+Ks 0.00 0.00 0.00
+map_Ks 02_lambert5SG_Roughness.tga
+Ns 100.00
+newmtl _lambert6SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 02_BaseColor.tga
+Ni 1.00
+Ks 0.00 0.00 0.00
+map_Ks 02_Roughness.tga
+Ns 100.00
+newmtl _lambert7SG4
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 02_detal:lambert7SG_BaseColor.tga
+Ni 1.00
+Ks 0.00 0.00 0.00
+map_Ks 02_detal:lambert7SG_Roughness.tga
+Ns 100.00
+newmtl _phong1SG4
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 02_detal:phong1SG_BaseColor.tga
+Ni 1.00
+Ks 0.00 0.00 0.00
+map_Ks 02_detal:phong1SG_Roughness.tga
+Ns 100.00
+newmtl detal:anisotropic1SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd TexturesCom_Buttons0162_M.jpg
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 0.06
+newmtl detal:blinn1SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd 0fe69b8f7a1ec429961e008498f2b6b1.png
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 0.06
+newmtl detal:lambert4SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd TexturesCom_Buttons0150_1_M.jpg
+Ni 1.00
+newmtl detal:lambert7SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd adc-800gp-gold-plated-aneroid-gauge-for-diagnostix-700-778-pocket-sphygmomanometers2_1024x.jpg
+Ni 1.00
+newmtl detal:lambert9SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+Ni 1.00
+newmtl detal:phong1SG
+illum 4
+Kd 0.00 0.00 0.00
+Ka 0.00 0.00 0.00
+Tf 1.00 1.00 1.00
+map_Kd vinatge-control-panel-28595930.jpg
+Ni 1.00
+Ks 0.50 0.50 0.50
+Ns 18.00

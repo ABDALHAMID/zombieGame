@@ -5,8 +5,10 @@ using UnityEngine;
 public class RotaitByTime : MonoBehaviour
 {
     public float _rotationSpeed;
+    public bool ZRotation;
     void Update()
     {
-        transform.Rotate(new Vector3(_rotationSpeed, 0, 0));
+        if(ZRotation) transform.Rotate(new Vector3(0, 0, _rotationSpeed));
+        else transform.Rotate(new Vector3(_rotationSpeed, 0, 0));
     }
 }

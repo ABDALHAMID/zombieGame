@@ -1,31 +1,39 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Events;
 
-public class healthSystem : MonoBehaviour
+public class HealthSystem : MonoBehaviour
 {
-    [SerializeField]
-    private int maxHealt, curruntHealth;
+    [SerializeField] private int _maxHealth, _curruntHealth;
     private bool isDead = false;
+    [SerializeField] private bool _haveEvent = false;
+
+    [SerializeField] private UnityEvent _takeDamageEvent;
+    [SerializeField] private UnityEvent _dieEvent;
 
     private void Awake()
     {
-        curruntHealth = maxHealt;
+        _curruntHealth = _maxHealth;
     }
     public void TakeDamage(int damageTeken)
     {
-        curruntHealth -= damageTeken;
+        _curruntHealth -= damageTeken;
         Die();
+        if (_haveEvent) _takeDamageEvent.Invoke();
+
     }
     //die function if the curruntHealth is 0 or less
     private void Die()
     {
-        if(curruntHealth <= 0)
+        if(_curruntHealth <= 0)
         {
             //die code here
             isDead = true;
-            Debug.Log("we die\n script \"bulletsControler\" not complet!!!");
+            if (_haveEvent) _dieEvent.Invoke();
         }
     }
     public bool GetIsDead() => isDead;
+    public int GetMaxHealt() => _maxHealth;
+    public int GetCurruntHealth() => _curruntHealth;
 }

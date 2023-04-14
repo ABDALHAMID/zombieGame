@@ -13,6 +13,7 @@ TagManager:
   - weaponRightHandPose
   - grapPose
   - Laser
+  - mainCanvas
   layers:
   - Default
   - TransparentFX
@@ -25,9 +26,9 @@ TagManager:
   - Character
   - Ground
   - Weapon
-  - 
-  - 
-  - 
+  - particls
+  - UI2
+  - default2
   - 
   - 
   - 

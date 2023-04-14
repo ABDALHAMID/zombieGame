@@ -144,9 +144,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullet: {fileID: 5006185252088699285, guid: 174a85b0801ae5e44a3d344be712f9df, type: 3}
-  shootForce: 150
+  shootForce: 300
   upwardForce: 0
-  timeBetweenShooting: 0.2
+  timeBetweenShooting: 0.12
   spread: 0
   reloadTime: 0
   timeBetweenShots: 0.3

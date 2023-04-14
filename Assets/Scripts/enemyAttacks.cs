@@ -3,11 +3,11 @@ using System.Collections.Generic;
 using UnityEngine;
 
 
-public class enemyAttacks : MonoBehaviour
+public class EnemyAttacks : MonoBehaviour
 {
     private bool isAttaking;
     private int curantState;
-    private healthSystem healthSystem;
+    private HealthSystem healthSystem;
     public EnemyHitObjectScript[] hitObjects;
     private BaseEnemyControle enemyControle;
     private bool doDamage = false;
@@ -16,7 +16,7 @@ public class enemyAttacks : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        healthSystem = GetComponent<healthSystem>();
+        healthSystem = GetComponent<HealthSystem>();
         enemyControle = GetComponent<BaseEnemyControle>();
     }
 
@@ -42,7 +42,7 @@ public class enemyAttacks : MonoBehaviour
         {
             if (hitObject.GetHitedObject() != null && hitObject.GetHitedObject().CompareTag("Player"))
             {
-                healthSystem hitedObjectHealtSystem = hitObject.GetHitedObject().GetComponentInParent<healthSystem>();
+                HealthSystem hitedObjectHealtSystem = hitObject.GetHitedObject().GetComponentInParent<HealthSystem>();
                 hitedObjectHealtSystem.TakeDamage(hitObject.damage);
                 Debug.Log("do Damage");
                 doDamage = false;

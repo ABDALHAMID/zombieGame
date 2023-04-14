@@ -43,7 +43,7 @@ public class bulletsControler : MonoBehaviour
             if (whatWeHit.CompareTag("Enemy") || whatWeHit.CompareTag("Destroyerble"))
             {
                 //call the takedamage script of the health system of the hiting object
-                whatWeHit.GetComponent<healthSystem>().TakeDamage(damage);
+                whatWeHit.GetComponent<HealthSystem>().TakeDamage(damage);
                 DestroyBulletAfter();
             }
             //if the hitted object is not capable to get damage
