@@ -112,7 +112,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e95a320997abc44182beace4101f808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletHole: {fileID: 5950911892423802065, guid: 3b4f6b36a340ed34fad6fdf9fb15f1a7,
+  bulletHole: {fileID: 5950911892423802065, guid: 7d2986ecfabd00e4ebf3419cc85e7f51,
     type: 3}
 --- !u!54 &386565045438612441
 Rigidbody:

@@ -1,50 +1,134 @@
 fileFormatVersion: 2
 guid: 685f3c2516b9d3041970058318a5c349
 ModelImporter:
-  serializedVersion: 23
-  fileIDToRecycleName:
-    100000: SciFi_WallLight021
-    100002: SciFi_WallLightBulb021
-    100004: Tunnel Beams005
-    100006: Tunnel Ceiling005
-    100008: //RootNode
-    100010: Tunnel Floor005
-    100012: Tunnel Piipes005
-    100014: Tunnel Walls005
-    400000: SciFi_WallLight021
-    400002: SciFi_WallLightBulb021
-    400004: Tunnel Beams005
-    400006: Tunnel Ceiling005
-    400008: //RootNode
-    400010: Tunnel Floor005
-    400012: Tunnel Piipes005
-    400014: Tunnel Walls005
-    2100000: SciFi_lightFixture
-    2100002: SciFi_light_bulb
-    2100004: SciFi_walls
-    2100006: SciFi_ceiling
-    2100008: SciFi_floor_tile
-    2300000: SciFi_WallLight021
-    2300002: SciFi_WallLightBulb021
-    2300004: Tunnel Beams005
-    2300006: Tunnel Ceiling005
-    2300008: Tunnel Floor005
-    2300010: Tunnel Piipes005
-    2300012: Tunnel Walls005
-    3300000: SciFi_WallLight021
-    3300002: SciFi_WallLightBulb021
-    3300004: Tunnel Beams005
-    3300006: Tunnel Ceiling005
-    3300008: Tunnel Floor005
-    3300010: Tunnel Piipes005
-    3300012: Tunnel Walls005
-    4300000: SciFi_WallLight021
-    4300002: SciFi_WallLightBulb021
-    4300004: Tunnel Beams005
-    4300006: Tunnel Ceiling005
-    4300008: Tunnel Floor005
-    4300010: Tunnel Piipes005
-    4300012: Tunnel Walls005
+  serializedVersion: 21300
+  internalIDToNameTable:
+  - first:
+      1: 100000
+    second: SciFi_WallLight021
+  - first:
+      1: 100002
+    second: SciFi_WallLightBulb021
+  - first:
+      1: 100004
+    second: Tunnel Beams005
+  - first:
+      1: 100006
+    second: Tunnel Ceiling005
+  - first:
+      1: 100008
+    second: //RootNode
+  - first:
+      1: 100010
+    second: Tunnel Floor005
+  - first:
+      1: 100012
+    second: Tunnel Piipes005
+  - first:
+      1: 100014
+    second: Tunnel Walls005
+  - first:
+      4: 400000
+    second: SciFi_WallLight021
+  - first:
+      4: 400002
+    second: SciFi_WallLightBulb021
+  - first:
+      4: 400004
+    second: Tunnel Beams005
+  - first:
+      4: 400006
+    second: Tunnel Ceiling005
+  - first:
+      4: 400008
+    second: //RootNode
+  - first:
+      4: 400010
+    second: Tunnel Floor005
+  - first:
+      4: 400012
+    second: Tunnel Piipes005
+  - first:
+      4: 400014
+    second: Tunnel Walls005
+  - first:
+      21: 2100000
+    second: SciFi_lightFixture
+  - first:
+      21: 2100002
+    second: SciFi_light_bulb
+  - first:
+      21: 2100004
+    second: SciFi_walls
+  - first:
+      21: 2100006
+    second: SciFi_ceiling
+  - first:
+      21: 2100008
+    second: SciFi_floor_tile
+  - first:
+      23: 2300000
+    second: SciFi_WallLight021
+  - first:
+      23: 2300002
+    second: SciFi_WallLightBulb021
+  - first:
+      23: 2300004
+    second: Tunnel Beams005
+  - first:
+      23: 2300006
+    second: Tunnel Ceiling005
+  - first:
+      23: 2300008
+    second: Tunnel Floor005
+  - first:
+      23: 2300010
+    second: Tunnel Piipes005
+  - first:
+      23: 2300012
+    second: Tunnel Walls005
+  - first:
+      33: 3300000
+    second: SciFi_WallLight021
+  - first:
+      33: 3300002
+    second: SciFi_WallLightBulb021
+  - first:
+      33: 3300004
+    second: Tunnel Beams005
+  - first:
+      33: 3300006
+    second: Tunnel Ceiling005
+  - first:
+      33: 3300008
+    second: Tunnel Floor005
+  - first:
+      33: 3300010
+    second: Tunnel Piipes005
+  - first:
+      33: 3300012
+    second: Tunnel Walls005
+  - first:
+      43: 4300000
+    second: SciFi_WallLight021
+  - first:
+      43: 4300002
+    second: SciFi_WallLightBulb021
+  - first:
+      43: 4300004
+    second: Tunnel Beams005
+  - first:
+      43: 4300006
+    second: Tunnel Ceiling005
+  - first:
+      43: 4300008
+    second: Tunnel Floor005
+  - first:
+      43: 4300010
+    second: Tunnel Piipes005
+  - first:
+      43: 4300012
+    second: Tunnel Walls005
   externalObjects:
   - first:
       type: UnityEngine:Material
@@ -72,7 +156,7 @@ ModelImporter:
       name: SciFi_walls
     second: {fileID: 2100000, guid: d893f707bc253a84aa1e7d87361c830a, type: 2}
   materials:
-    importMaterials: 1
+    materialImportMode: 1
     materialName: 0
     materialSearch: 1
     materialLocation: 1
@@ -81,6 +165,7 @@ ModelImporter:
     bakeSimulation: 0
     resampleCurves: 1
     optimizeGameObjects: 0
+    removeConstantScaleCurves: 0
     motionNodeName: 
     rigImportErrors: 
     rigImportWarnings: 
@@ -105,25 +190,34 @@ ModelImporter:
     meshCompression: 0
     addColliders: 0
     useSRGBMaterialColor: 1
+    sortHierarchyByName: 1
     importVisibility: 1
     importBlendShapes: 1
     importCameras: 1
     importLights: 1
+    nodeNameCollisionStrategy: 0
+    fileIdsGeneration: 1
     swapUVChannels: 0
-    generateSecondaryUV: 0
+    generateSecondaryUV: 1
     useFileUnits: 1
-    optimizeMeshForGPU: 1
     keepQuads: 0
     weldVertices: 1
+    bakeAxisConversion: 0
     preserveHierarchy: 0
+    skinWeightsMode: 0
+    maxBonesPerVertex: 4
+    minBoneWeight: 0.001
+    optimizeBones: 1
+    meshOptimizationFlags: -1
     indexFormat: 0
     secondaryUVAngleDistortion: 8
     secondaryUVAreaDistortion: 15.000001
     secondaryUVHardAngle: 88
+    secondaryUVMarginMethod: 0
+    secondaryUVMinLightmapResolution: 40
+    secondaryUVMinObjectScale: 1
     secondaryUVPackMargin: 4
     useFileScale: 1
-    previousCalculatedGlobalScale: 1
-    hasPreviousCalculatedGlobalScale: 0
   tangentSpace:
     normalSmoothAngle: 60
     normalImportMode: 0
@@ -132,10 +226,10 @@ ModelImporter:
     legacyComputeAllNormalsFromSmoothingGroupsWhenMeshHasBlendShapes: 0
     blendShapeNormalImportMode: 1
     normalSmoothingSource: 0
+  referencedClips: []
   importAnimation: 1
-  copyAvatar: 0
   humanDescription:
-    serializedVersion: 2
+    serializedVersion: 3
     human: []
     skeleton: []
     armTwist: 0.5
@@ -145,13 +239,18 @@ ModelImporter:
     armStretch: 0.05
     legStretch: 0.05
     feetSpacing: 0
+    globalScale: 1
     rootMotionBoneName: 
     hasTranslationDoF: 0
     hasExtraRoot: 0
     skeletonHasParents: 1
   lastHumanDescriptionAvatarSource: {instanceID: 0}
+  autoGenerateAvatarMappingIfUnspecified: 1
   animationType: 0
   humanoidOversampling: 1
+  avatarSetup: 0
+  addHumanoidExtraRootOnlyWhenUsingAvatar: 0
+  remapMaterialsIfMaterialImportModeIsNone: 1
   additionalBone: 0
   userData: 
   assetBundleName: 

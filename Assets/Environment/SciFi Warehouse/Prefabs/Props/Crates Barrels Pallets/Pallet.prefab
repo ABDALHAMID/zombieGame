@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 4921377422796233944}
   - component: {fileID: 1689052008531517473}
   - component: {fileID: 8015921039156976964}
+  - component: {fileID: 4767556994397568796}
   m_Layer: 0
   m_Name: Pallet
   m_TagString: Untagged
@@ -97,3 +98,17 @@ BoxCollider:
   serializedVersion: 2
   m_Size: {x: 1.561902, y: 0.19838908, z: 1.5239612}
   m_Center: {x: 0.7777127, y: 0.09919457, z: 0.75671333}
+--- !u!114 &4767556994397568796
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1102363584748082429}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 6e95a320997abc44182beace4101f808, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  bulletHole: {fileID: 5950911892423802065, guid: 7d2986ecfabd00e4ebf3419cc85e7f51,
+    type: 3}

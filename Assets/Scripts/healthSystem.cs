@@ -19,8 +19,8 @@ public class HealthSystem : MonoBehaviour
     public void TakeDamage(int damageTeken)
     {
         _curruntHealth -= damageTeken;
-        Die();
         if (_haveEvent) _takeDamageEvent.Invoke();
+        Die();
 
     }
     //die function if the curruntHealth is 0 or less

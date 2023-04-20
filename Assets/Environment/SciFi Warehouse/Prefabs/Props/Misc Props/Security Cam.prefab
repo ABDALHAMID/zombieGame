@@ -11,13 +11,14 @@ GameObject:
   - component: {fileID: 4253931417120615108}
   - component: {fileID: 5067119862230683890}
   - component: {fileID: 1544329784318618635}
+  - component: {fileID: 1876270415078821920}
   - component: {fileID: -4296605259102751120}
   m_Layer: 0
   m_Name: Security Cam
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
+  m_StaticEditorFlags: 2147483647
   m_IsActive: 1
 --- !u!4 &4253931417120615108
 Transform:
@@ -84,6 +85,20 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
+--- !u!64 &1876270415078821920
+MeshCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 959928407717566679}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 4
+  m_Convex: 0
+  m_CookingOptions: 30
+  m_Mesh: {fileID: 4300000, guid: b242581fc7fd82a45b00226894da6bfb, type: 3}
 --- !u!114 &-4296605259102751120
 MonoBehaviour:
   m_ObjectHideFlags: 0

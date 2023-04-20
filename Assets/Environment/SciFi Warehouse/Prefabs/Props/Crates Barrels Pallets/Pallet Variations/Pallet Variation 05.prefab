@@ -113,7 +113,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6e95a320997abc44182beace4101f808, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bulletHole: {fileID: 1881703945624342062, guid: 944ca7eec9f87f8478c12d592ee4df5a,
+  bulletHole: {fileID: 5950911892423802065, guid: 7d2986ecfabd00e4ebf3419cc85e7f51,
     type: 3}
 --- !u!1001 &8616490787129241551
 PrefabInstance:

@@ -10,7 +10,6 @@ public class DangerZoneScript : MonoBehaviour
     [SerializeField] private float _radius;
     [SerializeField] private float _timeBetweenDamag, _damageInterval;
     private float timeElapsed = 0f;
-    private bool canTakeDamage = true;
 
     private void Start()
     {
@@ -72,7 +71,7 @@ private void FixedUpdate()
         //check if we hit something for the first time
         Debug.Log("dangerzomne" + this.gameObject);
             _player.GetComponent<HealthSystem>().TakeDamage(_damagePerSecond);
-        canTakeDamage = true;
+
     }
     private void OnDrawGizmos()
     {

@@ -18,7 +18,6 @@ public class bulletsControler : MonoBehaviour
     //get the information about the object hit by bullet
     private void OnCollisionEnter(Collision collision)
     {
-        Debug.Log(collision.gameObject);
 
         if (check)
         {
@@ -43,7 +42,10 @@ public class bulletsControler : MonoBehaviour
             if (whatWeHit.CompareTag("Enemy") || whatWeHit.CompareTag("Destroyerble"))
             {
                 //call the takedamage script of the health system of the hiting object
-                whatWeHit.GetComponent<HealthSystem>().TakeDamage(damage);
+                if(whatWeHit.GetComponent<HealthSystem>() != null)
+                    whatWeHit.GetComponent<HealthSystem>().TakeDamage(damage);
+                else
+                    whatWeHit.GetComponentInParent<HealthSystem>().TakeDamage(damage);
                 DestroyBulletAfter();
             }
             //if the hitted object is not capable to get damage
@@ -53,7 +55,7 @@ public class bulletsControler : MonoBehaviour
                  * sctipt not complete
                  * make un visual hit spote 
                  */
-                Debug.Log("we hit samething \n script \"bulletsControler\" not complet!!!");
+
                 rb.useGravity = true;
                 Invoke(nameof(DestroyBulletAfter), 1f);
             }
