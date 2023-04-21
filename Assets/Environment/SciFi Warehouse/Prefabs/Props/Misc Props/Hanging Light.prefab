@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3470092910961130467}
   - component: {fileID: 2125947554577182160}
   - component: {fileID: 6779380336776852517}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: SciFi_light_bulb
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -134,7 +134,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!4 &2185863141994907188
 Transform:
   m_ObjectHideFlags: 0
@@ -143,7 +143,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 7250712355808501028}
   m_LocalRotation: {x: 0.7071068, y: 0, z: 0, w: 0.7071068}
-  m_LocalPosition: {x: -0.000007212162, y: -1.027, z: 0.000000029802322}
+  m_LocalPosition: {x: -0.000007212162, y: -0.171, z: 0.000000029802322}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -162,8 +162,8 @@ Light:
   m_Type: 2
   m_Shape: 0
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Intensity: 7
-  m_Range: 200
+  m_Intensity: 15
+  m_Range: 100
   m_SpotAngle: 179
   m_InnerSpotAngle: 179
   m_CookieSize: 10
@@ -204,7 +204,7 @@ Light:
   m_Lightmapping: 2
   m_LightShadowCasterMode: 0
   m_AreaSize: {x: 1, y: 1}
-  m_BounceIntensity: 2
+  m_BounceIntensity: 1
   m_ColorTemperature: 6570
   m_UseColorTemperature: 0
   m_BoundingSphereOverride: {x: 0, y: 0, z: 0, w: 0}
@@ -245,7 +245,7 @@ GameObject:
   - component: {fileID: 6193422828958321067}
   - component: {fileID: 1180858649898055766}
   - component: {fileID: 6800530410156823644}
-  m_Layer: 0
+  m_Layer: 14
   m_Name: SciFi_light_fixture
   m_TagString: Untagged
   m_Icon: {fileID: 0}
