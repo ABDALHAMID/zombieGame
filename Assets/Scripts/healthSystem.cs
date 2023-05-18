@@ -5,7 +5,7 @@ using UnityEngine.Events;
 
 public class HealthSystem : MonoBehaviour
 {
-    [SerializeField] private int _maxHealth, _curruntHealth;
+    [SerializeField] private float _maxHealth, _curruntHealth;
     private bool isDead = false;
     [SerializeField] private bool _haveEvent = false;
 
@@ -16,7 +16,7 @@ public class HealthSystem : MonoBehaviour
     {
         _curruntHealth = _maxHealth;
     }
-    public void TakeDamage(int damageTeken)
+    public void TakeDamage(float damageTeken)
     {
         _curruntHealth -= damageTeken;
         if (_haveEvent) _takeDamageEvent.Invoke();
@@ -34,6 +34,6 @@ public class HealthSystem : MonoBehaviour
         }
     }
     public bool GetIsDead() => isDead;
-    public int GetMaxHealt() => _maxHealth;
-    public int GetCurruntHealth() => _curruntHealth;
+    public float GetMaxHealt() => _maxHealth;
+    public float GetCurruntHealth() => _curruntHealth;
 }

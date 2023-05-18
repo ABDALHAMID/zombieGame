@@ -11,7 +11,7 @@ public class EnemyAttacks : MonoBehaviour
     private Animator _animator;
     public EnemySounds enemySounds;
     private bool _isAttacking, readyToAttak;
-    private int damage;
+    private float damage;
     public string attackBlendTree = "attacking";
     [SerializeField]
     private Vector3 attackPos;

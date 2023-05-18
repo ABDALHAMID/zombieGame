@@ -19,6 +19,7 @@ GameObject:
   - component: {fileID: 5712609066594053529}
   - component: {fileID: 5712609066594053530}
   - component: {fileID: 5712609066594053528}
+  - component: {fileID: 3498441028512168083}
   m_Layer: 0
   m_Name: main zombie
   m_TagString: Enemy
@@ -64,6 +65,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &4360998862823963541
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -542,6 +544,19 @@ MonoBehaviour:
     pitch: 1
     loop: 0
   s: {fileID: 5712609066594053529}
+--- !u!135 &3498441028512168083
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4360998862823963544}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Radius: 0.1
+  m_Center: {x: 0, y: 1, z: 0}
 --- !u!1 &4861853368682737257
 GameObject:
   m_ObjectHideFlags: 0

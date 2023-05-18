@@ -15,8 +15,8 @@ EditorBuildSettings:
     path: Assets/Scenes/FirstStage/FirstStage.unity
     guid: 94d8d345da6465b42815b27af40065fd
   - enabled: 1
-    path: Assets/Scenes/SciFi Warehouse Kit/SciFi_Warehouse.unity
-    guid: 04ba57353b4f0284686265d3d150c23c
+    path: Assets/Scenes/FirstMission/seconScene/FirstMissionSecondScene.unity
+    guid: e9294eb6356cf0e41a0bdf2fef3908d0
   - enabled: 1
     path: Assets/Scenes/IntroScene/IntroScenes.unity
     guid: 2e6db5abead2abb4eb835c2058082b8e

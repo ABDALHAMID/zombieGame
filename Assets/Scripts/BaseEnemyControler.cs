@@ -64,7 +64,7 @@ public class BaseEnemyControler : MonoBehaviour
                     // Rotate the raycast direction based on the angle and number of raycasts
                     raycastDirection = Quaternion.AngleAxis((i - numberOfXRaycasts / 2) * raycastYAngle, scherchPoint.up) * raycastDirection;
                     raycastDirection = Quaternion.AngleAxis((j - _numberOfYRaycasts / 2) * raycastXAngle, scherchPoint.right) * raycastDirection;
-                    Ray ray = new(scherchPoint.position, raycastDirection);
+                    Ray ray = new Ray(scherchPoint.position, raycastDirection);
 
                     // Perform the raycast
                     if (Physics.Raycast(ray, out RaycastHit hit, raycastLength))
@@ -223,7 +223,7 @@ public class BaseEnemyControler : MonoBehaviour
                 // Rotate the raycast direction based on the angle and number of raycasts
                 raycastDirection = Quaternion.AngleAxis((i - numberOfXRaycasts / 2) * raycastYAngle, scherchPoint.up) * raycastDirection;
                 raycastDirection = Quaternion.AngleAxis((j - _numberOfYRaycasts / 2) * raycastXAngle, scherchPoint.right) * raycastDirection;
-                Ray ray = new(scherchPoint.position, raycastDirection);
+                Ray ray = new Ray(scherchPoint.position, raycastDirection);
 
                 Gizmos.DrawRay(scherchPoint.position, raycastDirection);
             }

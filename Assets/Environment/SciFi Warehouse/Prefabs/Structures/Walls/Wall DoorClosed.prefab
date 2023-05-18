@@ -13,12 +13,13 @@ GameObject:
   - component: {fileID: 3378366594693974494}
   - component: {fileID: 5068451202407531275}
   - component: {fileID: 5451616586624723022}
+  - component: {fileID: 6107104485457413020}
   m_Layer: 0
   m_Name: LP_Door_snaps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &5564319381865232120
 Transform:
@@ -27,7 +28,7 @@ Transform:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 477033835086796930}
-  m_LocalRotation: {x: 0.000000021855694, y: 0, z: -0, w: 1}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: -0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -113,6 +114,19 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bulletHole: {fileID: 5950911892423802065, guid: 3b4f6b36a340ed34fad6fdf9fb15f1a7,
     type: 3}
+--- !u!65 &6107104485457413020
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 477033835086796930}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
+  m_Enabled: 1
+  serializedVersion: 2
+  m_Size: {x: 0.27971685, y: 2.052752, z: 1.4714353}
+  m_Center: {x: 0.0069100335, y: 1.0237606, z: 3.0000067}
 --- !u!1 &4036494845293672880
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,8 +138,6 @@ GameObject:
   - component: {fileID: 7230753144398632834}
   - component: {fileID: 1852637315405958856}
   - component: {fileID: 1497059573256825442}
-  - component: {fileID: 4083212399643600892}
-  - component: {fileID: 3807649920489809371}
   m_Layer: 0
   m_Name: LP_Door_frame_snaps
   m_TagString: Untagged
@@ -198,34 +210,6 @@ MeshRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_AdditionalVertexStreams: {fileID: 0}
---- !u!64 &4083212399643600892
-MeshCollider:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4036494845293672880}
-  m_Material: {fileID: 0}
-  m_IsTrigger: 0
-  m_Enabled: 1
-  serializedVersion: 4
-  m_Convex: 0
-  m_CookingOptions: 30
-  m_Mesh: {fileID: 4300002, guid: b47e3bba032b35441a80e6b384d61baf, type: 3}
---- !u!114 &3807649920489809371
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 4036494845293672880}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 6e95a320997abc44182beace4101f808, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  bulletHole: {fileID: 5950911892423802065, guid: 3b4f6b36a340ed34fad6fdf9fb15f1a7,
-    type: 3}
 --- !u!1 &4261886463943454596
 GameObject:
   m_ObjectHideFlags: 0
@@ -235,12 +219,13 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 972244189732658583}
+  - component: {fileID: 1260416992707219977}
   m_Layer: 0
   m_Name: Wall DoorClosed
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
-  m_StaticEditorFlags: 2147483647
+  m_StaticEditorFlags: 0
   m_IsActive: 1
 --- !u!4 &972244189732658583
 Transform:
@@ -260,6 +245,27 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1260416992707219977
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4261886463943454596}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2f9b83ef848a27a4387a70213836a9e5, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  door: {fileID: 5564319381865232120}
+  doorNextPosition: {x: 0, y: 0, z: 1.25}
+  doorInistialPosition: {x: 0, y: 0, z: 0}
+  PlayerLayer:
+    serializedVersion: 2
+    m_Bits: 8
+  checkBoxPosition: {x: 0, y: 1, z: 3}
+  checkBoxSize: {x: 3, y: 3, z: 3}
+  openSpeed: 2.5
 --- !u!1 &6194237580895595712
 GameObject:
   m_ObjectHideFlags: 0

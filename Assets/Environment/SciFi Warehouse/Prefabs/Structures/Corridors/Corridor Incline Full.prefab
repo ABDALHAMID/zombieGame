@@ -239,7 +239,7 @@ GameObject:
   - component: {fileID: 3361326707273154358}
   - component: {fileID: 5211471753867180955}
   - component: {fileID: 1473599858110268754}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Tunnel Incline Steps001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -465,7 +465,7 @@ GameObject:
   - component: {fileID: 3361326707273154362}
   - component: {fileID: 4117238343069805709}
   - component: {fileID: 456217910115428081}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Tunnel Incline Floor001
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -578,7 +578,7 @@ GameObject:
   - component: {fileID: 3361326707273154364}
   - component: {fileID: 5954176778100232232}
   - component: {fileID: 770879609018379010}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Tunnel Incline Ceiling001
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -5,15 +5,22 @@ using UnityEngine;
 public class bulletsControler : MonoBehaviour
 {
     [SerializeField]
-    private int damage;
+    private float damage;
     //check if we can collide agame
     private bool check = true;
 
+    public bool explosive;
+    public GameObject explotion;
+
+    public LayerMask afectedLayer;
+
     private Rigidbody rb;
+    private Explotion explosion;
 
     private void Awake()
     {
         rb = gameObject.GetComponent<Rigidbody>();
+        explosion = GetComponent<Explotion>();
     }
     //get the information about the object hit by bullet
     private void OnCollisionEnter(Collision collision)
@@ -21,7 +28,6 @@ public class bulletsControler : MonoBehaviour
 
         if (check)
         {
-
             //get what object we hit
             GameObject whatWeHit = collision.gameObject;
             if(whatWeHit.GetComponent<PrefabVariabels>()) MakeBulletHole(whatWeHit, collision);
@@ -35,6 +41,7 @@ public class bulletsControler : MonoBehaviour
     //damage function
     private void DoDamage(GameObject whatWeHit)
     {
+        
         //check if we hit something for the first time
         if(whatWeHit != null)
         {
@@ -59,6 +66,11 @@ public class bulletsControler : MonoBehaviour
                 rb.useGravity = true;
                 Invoke(nameof(DestroyBulletAfter), 1f);
             }
+            if (explosive)
+            {
+                Instantiate(explotion, transform.position, Quaternion.identity);
+                explosion.Explode();
+            }
         }        
     }
     private void DestroyBulletAfter()
@@ -78,7 +90,7 @@ public class bulletsControler : MonoBehaviour
         Instantiate(bulletHolePrefab, contact.point + new Vector3(0, 0, 0.15f), rotation);
     
     }
-    private int GetDamage()
+    private float GetDamage()
     {
         return damage;
     }

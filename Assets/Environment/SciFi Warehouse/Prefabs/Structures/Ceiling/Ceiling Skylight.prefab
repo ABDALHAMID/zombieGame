@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 6450201270187372536}
   - component: {fileID: 6957952315348431251}
   - component: {fileID: 2365474385966617677}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: LP_Skylight_glass_snaps
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -107,7 +107,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1505956034637721244}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Ceiling Skylight
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -144,7 +144,7 @@ GameObject:
   - component: {fileID: 8092062765133607492}
   - component: {fileID: 6034828060080512183}
   - component: {fileID: 9123777015191147856}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: LP_ceiling_tile_Window_snaps
   m_TagString: Untagged
   m_Icon: {fileID: 0}

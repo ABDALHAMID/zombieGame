@@ -14,6 +14,7 @@ TagManager:
   - grapPose
   - Laser
   - mainCanvas
+  - Weapon
   layers:
   - Default
   - TransparentFX

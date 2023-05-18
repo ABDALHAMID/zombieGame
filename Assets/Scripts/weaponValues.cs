@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class weaponValues : MonoBehaviour
 {
-    private weaponPosition weaponPosition;
+    private WeaponPosition weaponPosition;
 
     
     
@@ -28,8 +28,7 @@ public class weaponValues : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        weaponPosition = GetComponentInParent<weaponPosition>();
-        weaponPosition.setWeaponValue(bullet, shootForce, upwardForce, timeBetweenShooting, spread, reloadTime, timeBetweenShots,
-                                      magazineSize, bulletsPerTap, allowButtonHold, muzzleFlash, attackPoint, weaponRb, recoilForce);
+        weaponPosition = GetComponentInParent<WeaponPosition>();
+        //weaponPosition.SetWeaponValue(WeaponInfo weaponInfo);
     }
 }

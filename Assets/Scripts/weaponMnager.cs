@@ -9,6 +9,16 @@ using UnityEngine.Animations.Rigging;
 
 public class weaponMnager : MonoBehaviour
 {
+    private int weaponIndex = 0;
+    private WeaponState weaponState;
+    private Animator anim;
+
+    public int weapons;
+
+    public Rig rightHandPoseStatic;
+    public Rig rightHandPoseInMove;
+    public Rig leftHandPose;
+
     [SerializeField] private CinemachineVirtualCamera playerAimCamera;
     [SerializeField] private StarterAssetsInputs input;
     [SerializeField] private LayerMask aimColliderLayerMask = new LayerMask();
@@ -20,9 +30,9 @@ public class weaponMnager : MonoBehaviour
 
     Vector3 targetPoint;
     [SerializeField] private Transform aimPoint;
-    private weaponPosition weaponPosition;
+    private WeaponPosition weaponPosition;
     //input system  
-    [SerializeField] private InputActionReference shoot;
+    [SerializeField] private InputActionReference shoot, switchWeapon;
     //bullet 
     private GameObject bullet;
 
@@ -37,7 +47,7 @@ public class weaponMnager : MonoBehaviour
     private int  bulletsShot;
 
     //Recoil
-    //private Rigidbody weaponRb;
+    private Rigidbody weaponRb;
     private float recoilForce;
 
     //bools
@@ -56,20 +66,25 @@ public class weaponMnager : MonoBehaviour
     private bool allowInvoke = true;
     private bool isAimming;
 
+    private Animator weaponAnimator;
+
     private void Awake()
     {
+        weaponIndex = 0;
+        weaponState = GetComponentInChildren<WeaponState>();
+        anim = GetComponent<Animator>();
         thirdPersonController = GetComponent<ThirdPersonController>();
         input = GetComponent<StarterAssetsInputs>();
-        weaponPosition = GetComponentInChildren<weaponPosition>();
+        weaponPosition = GetComponentInChildren<WeaponPosition>();
         //make sure magazine is full
         bulletsLeft = magazineSize;
         readyToShoot = true;
-        //weaponRb = GetComponent<Rigidbody>();
         
     }
 
     private void FixedUpdate()
     {
+
         //Find the exact hit position using a raycast
         Vector2 screenCenterPoint = new Vector2(Screen.width / 2f, Screen.height / 2f);
         Ray ray = fpsCam.ScreenPointToRay(screenCenterPoint); //Just a ray through the middle of your current view
@@ -102,7 +117,7 @@ public class weaponMnager : MonoBehaviour
         MyInput();
 
 
-        //weaponRb = weaponPosition.weaponRb;
+        weaponRb = weaponPosition.weaponRb;
         attackPoint = weaponPosition.attackPoint;
         muzzleFlash = weaponPosition.muzzleFlash;
         allowButtonHold = weaponPosition.allowButtonHold;
@@ -116,6 +131,7 @@ public class weaponMnager : MonoBehaviour
         reloadTime = weaponPosition.reloadTime;
         timeBetweenShots = weaponPosition.timeBetweenShots;
         recoilForce = weaponPosition.recoilForce;
+        weaponAnimator = weaponPosition.animator;
     }
     private void RototeToTarget()
     {
@@ -128,11 +144,25 @@ public class weaponMnager : MonoBehaviour
     {
         shoot.action.performed += setShootTrue => { shooting = true;};
         shoot.action.canceled += setShootfalse => { shooting = false;};
-        
-    }
+        switchWeapon.action.performed += switchWeapons => { 
+            if (switchWeapons.ReadValue<float>() > 0) 
+            {
+                weaponIndex++;
+            }
+            else if (switchWeapons.ReadValue<float>() < 0)
+            {
+                weaponIndex--;
+            }
+            if (weaponIndex >= weapons) weaponIndex = 0;
+            if (weaponIndex <= -1) weaponIndex = weapons -1;
+            weaponState.ChangeWeapon(weaponIndex);
+
+        };
+
+        }
 
     //Reloading 
-    private void OnReload()
+        private void OnReload()
     {
         if (bulletsLeft < magazineSize && !reloading) Reload();
     }
@@ -177,6 +207,8 @@ public class weaponMnager : MonoBehaviour
         currentBullet.GetComponent<Rigidbody>().AddForce(directionWithSpread.normalized * shootForce, ForceMode.Impulse);
         currentBullet.GetComponent<Rigidbody>().AddForce(fpsCam.transform.up * upwardForce, ForceMode.Impulse);
 
+        weaponAnimator.SetTrigger("shot");
+
         //Instantiate muzzle flash, if you have one
         if (muzzleFlash != null)
         {
@@ -194,8 +226,6 @@ public class weaponMnager : MonoBehaviour
                    timeBetweenShooting);
             allowInvoke = false;
 
-            //Add recoil to player (should only be called once)
-            //weaponRb.AddForce(-directionWithSpread.normalized * recoilForce, ForceMode.Impulse);
         }
 
         //if more than one bulletsPerTap make sure to repeat shoot function
@@ -212,13 +242,21 @@ public class weaponMnager : MonoBehaviour
 
     private void Reload()
     {
-        reloading = true;
+        anim.SetLayerWeight(1, 1);
+        anim.SetTrigger("Reload");
+        rightHandPoseStatic.weight = 0f;
+        rightHandPoseInMove.weight = 1f;
+        leftHandPose.weight = 0f;
+    reloading = true;
         shooting = false;
-        Invoke(nameof(ReloadFinished),
-               reloadTime); //Invoke ReloadFinished function with your reloadTime as delay
+        Invoke(nameof(ReloadFinished),reloadTime); //Invoke ReloadFinished function with your reloadTime as delay
     }
-    private void ReloadFinished()
+    public void ReloadFinished()
     {
+        anim.SetLayerWeight(1, 0);
+        rightHandPoseStatic.weight = 1f;
+        rightHandPoseInMove.weight = 0f;
+        leftHandPose.weight = 1f;
         //Fill magazine
         bulletsLeft = magazineSize;
         reloading = false;

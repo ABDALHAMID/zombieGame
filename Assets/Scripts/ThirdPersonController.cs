@@ -103,7 +103,7 @@ namespace StarterAssets
         private int _animIDFreeFall;
         private int _animIDMotionSpeed;
 
-        public weaponPosition weaponPosition;
+        public WeaponPosition weaponPosition;
 
 #if ENABLE_INPUT_SYSTEM 
         private PlayerInput _playerInput;
@@ -239,6 +239,7 @@ namespace StarterAssets
 
         private void CameraRotation()
         {
+
             // if there is an input and camera position is not fixed
             if (_input.look.sqrMagnitude >= _threshold && !LockCameraPosition)
             {

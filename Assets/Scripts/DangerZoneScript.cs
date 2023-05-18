@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class DangerZoneScript : MonoBehaviour
 {
-    [SerializeField] private int _damagePerSecond;
+    [SerializeField] private float _damagePerSecond;
     [SerializeField] private GameObject _player;
     [SerializeField] private LayerMask _targetObject;
     [SerializeField] private float _radius;

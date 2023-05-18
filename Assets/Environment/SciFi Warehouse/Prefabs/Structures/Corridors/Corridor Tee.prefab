@@ -127,7 +127,7 @@ GameObject:
   - component: {fileID: 7956511404356387367}
   - component: {fileID: 6790144982036728831}
   - component: {fileID: 6532690464244713020}
-  m_Layer: 9
+  m_Layer: 0
   m_Name: Tunnel Floor002
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -252,7 +252,7 @@ GameObject:
   - component: {fileID: 321761353805689549}
   - component: {fileID: 5366882391081145224}
   - component: {fileID: 4696091735660726689}
-  m_Layer: 13
+  m_Layer: 0
   m_Name: Tunnel Ceiling002
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Animations.Rigging;
 
-public class weaponPosition : MonoBehaviour
+public class WeaponPosition : MonoBehaviour
 {
     public Camera fpsCam;
     //bullet
@@ -24,6 +24,8 @@ public class weaponPosition : MonoBehaviour
     public Rigidbody weaponRb;
     public float recoilForce;
 
+    public Animator animator;
+
 
     //hand poses
     [SerializeField]
@@ -39,27 +41,26 @@ public class weaponPosition : MonoBehaviour
         PositionHands();
     }
 
-    public void setWeaponValue(GameObject _bullet, float _shootForce, float _upwardForce, float _timeBetweenShooting, float _spread,
-                                   float _reloadTime, float _timeBetweenShots, int _magazineSize, int _bulletsPerTap, bool _allowButtonHold,
-                                   GameObject _muzzleFlash, Transform _attackPoint, Rigidbody _weaponRb, float _recoilForce)
+    public void SetWeaponValue(WeaponInfo weaponInfo)
     {
-        weaponRb = _weaponRb;
-        attackPoint = _attackPoint;
-        muzzleFlash = _muzzleFlash;
-        allowButtonHold = _allowButtonHold;
-        bulletsPerTap = _bulletsPerTap;
-        magazineSize = _magazineSize;
-        bullet = _bullet;
-        shootForce = _shootForce;
-        upwardForce = _upwardForce;
-        timeBetweenShooting = _timeBetweenShooting;
-        spread = _spread;
-        reloadTime = _reloadTime;
-        timeBetweenShots = _timeBetweenShots;
-        recoilForce = _recoilForce;
+        weaponRb = weaponInfo.weaponRb;
+        attackPoint = weaponInfo.attackPoint;
+        muzzleFlash = weaponInfo.muzzleFlash;
+        allowButtonHold = weaponInfo.allowButtonHold;
+        bulletsPerTap = weaponInfo.bulletsPerTap;
+        magazineSize = weaponInfo.magazineSize;
+        bullet = weaponInfo.bullet;
+        shootForce = weaponInfo.shootForce;
+        upwardForce = weaponInfo.upwardForce;
+        timeBetweenShooting = weaponInfo.timeBetweenShooting;
+        spread = weaponInfo.spread;
+        reloadTime = weaponInfo.reloadTime;
+        timeBetweenShots = weaponInfo.timeBetweenShots;
+        recoilForce = weaponInfo.recoilForce;
         weaponLeftHandPose = GameObject.FindGameObjectWithTag("weaponLeftHandPose").transform;
         weaponRightHandPose = GameObject.FindGameObjectWithTag("weaponRightHandPose").transform;
         weaponGrapPose = GameObject.FindGameObjectWithTag("grapPose").transform;
+        animator = weaponInfo.animator;
         //PositionHands();
     }
     public void PositionHands()
@@ -73,4 +74,5 @@ public class weaponPosition : MonoBehaviour
         weaponGrapPose.rotation = publicGrapPose.rotation;
 
     }
+
 }

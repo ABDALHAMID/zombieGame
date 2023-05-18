@@ -6,6 +6,7 @@ public class ragdollController : MonoBehaviour
 {
     public Rigidbody mainRigidbody;
     public Animator animator;
+    
     Rigidbody[] ragdollRigidbodys;
     void Start()
     {
@@ -25,6 +26,7 @@ public class ragdollController : MonoBehaviour
     public void OnDie()
     {
         Invoke(nameof(RagdolModeOn), 1f);
+        Invoke(nameof(DestroyThis), 1.1f);
     }
     public void RagdolModeOn()
     {
@@ -45,5 +47,9 @@ public class ragdollController : MonoBehaviour
     void getRagdollBits()
     {
         ragdollRigidbodys = mainRigidbody.GetComponentsInChildren<Rigidbody>();
+    }
+    void DestroyThis()
+    {
+        Destroy(this);
     }
 }

@@ -21,7 +21,7 @@ public class canvasProprty : MonoBehaviour
     public StarterAssetsInputs _InputSystem;
     
 
-    private int maxHealt, currentHealt, bulletsLeft, bulletsPerTap, magazineSize;
+    private float maxHealt, currentHealt, bulletsLeft, bulletsPerTap, magazineSize;
 
     private void Update()
     {
