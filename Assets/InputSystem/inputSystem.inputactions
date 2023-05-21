@@ -87,6 +87,15 @@
                     "initialStateCheck": false
                 },
                 {
+                    "name": "Objective",
+                    "type": "PassThrough",
+                    "id": "ae831769-44f7-43b9-9e93-35a8b16f43c3",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
                     "name": "SwitchWeapon",
                     "type": "PassThrough",
                     "id": "d10607ad-6aee-4279-9c3a-e847e9a08dd4",
@@ -402,6 +411,28 @@
                     "processors": "",
                     "groups": "",
                     "action": "SwitchWeapon",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "64b55f28-3536-4ff0-8430-80beb2f03d53",
+                    "path": "<Keyboard>/leftCtrl",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "KeyboardMouse",
+                    "action": "Objective",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "94f07837-03e6-44a4-8d38-c3bee913fc66",
+                    "path": "<Gamepad>/select",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "Gamepad",
+                    "action": "Objective",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

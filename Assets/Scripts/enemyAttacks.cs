@@ -92,5 +92,5 @@ public class EnemyAttackAnimation
     public float Distance;
     public float timeToDoDamage;
     public float animationTime;
-    public int damage;
+    public float damage;
 }

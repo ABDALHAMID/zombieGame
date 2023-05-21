@@ -116,7 +116,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 8341267881055857825}
   m_LocalRotation: {x: 0, y: 1, z: 0, w: 0}
-  m_LocalPosition: {x: -12.34, y: 0, z: -0.45}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children:
@@ -145,6 +145,7 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!114 &8341267881055857836
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -157,26 +158,57 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 924e199bb132e3842b35de9675352a55, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _enemyGraphics: {fileID: 0}
-  _playerLayer:
+  _screamDetectionRadius: 10
+  _playerLayerMask:
     serializedVersion: 2
     m_Bits: 0
-  rotationSpeed: 5
-  walkPointRange: 10
-  walkingSpeed: 0.8
-  ground:
-    serializedVersion: 2
-    m_Bits: 512
-  runSpeed: 3.5
-  scherchPoint: {fileID: 1391678908584090221}
+  _onDetectPlayerEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  ui: {fileID: 0}
+  _numberOfYRaycasts: 0
   numberOfXRaycasts: 9
-  numberOfYRaycasts: 5
   raycastYAngle: 20
   raycastXAngle: 20
   raycastLength: 50
+  scherchPoint: {fileID: 1391678908584090221}
+  _chasingSpeed: 0
+  _walkPointRange: 12
+  _walkingSpeed: 1
   timeToStopChasing: 5
-  _rayLimitRotation: 0.3
-  attackRange: 0.8
+  HealtSystem: {fileID: 0}
+  _healtBar: {fileID: 0}
+  _healtBarColorGradient:
+    serializedVersion: 2
+    key0: {r: 1, g: 1, b: 1, a: 1}
+    key1: {r: 1, g: 1, b: 1, a: 1}
+    key2: {r: 0, g: 0, b: 0, a: 0}
+    key3: {r: 0, g: 0, b: 0, a: 0}
+    key4: {r: 0, g: 0, b: 0, a: 0}
+    key5: {r: 0, g: 0, b: 0, a: 0}
+    key6: {r: 0, g: 0, b: 0, a: 0}
+    key7: {r: 0, g: 0, b: 0, a: 0}
+    ctime0: 0
+    ctime1: 65535
+    ctime2: 0
+    ctime3: 0
+    ctime4: 0
+    ctime5: 0
+    ctime6: 0
+    ctime7: 0
+    atime0: 0
+    atime1: 65535
+    atime2: 0
+    atime3: 0
+    atime4: 0
+    atime5: 0
+    atime6: 0
+    atime7: 0
+    m_Mode: 0
+    m_NumColorKeys: 2
+    m_NumAlphaKeys: 2
+  _healtBarImage: {fileID: 0}
+  Ui: {fileID: 0}
 --- !u!54 &8341267881055857827
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -227,8 +259,23 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2e7b98f929f21248885f8ea297a2572, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  attackAnimationName:
-  - Zombie Punching
+  idleAnimations: []
+  chaseAnimations: []
+  patrolAnimations: []
+  screamAnimations: []
+  hitAnimations: []
+  idleBlendTreeName: idle
+  walkBlendTreeName: walk
+  screamBlendTreeName: scream
+  chaseBlendTreeName: chase
+  hitBlendTreeName: hit
+  enemySounds: {fileID: 0}
+  OnStartScreaming:
+    m_PersistentCalls:
+      m_Calls: []
+  OnStartShasing:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!114 &8341267881055857832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -262,8 +309,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7ff54a2c8d9daab4e9ef3999b1768cba, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hitObjects:
-  - {fileID: 4634867102043257771}
+  _attackAnimations: []
+  playerLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  enemySounds: {fileID: 0}
+  attackBlendTree: attacking
+  attackPos: {x: 0, y: 0, z: 0}
+  rd: 0
 --- !u!114 &1488889871503643318
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -394,15 +447,3 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 2437008968614622485}
   m_PrefabAsset: {fileID: 0}
---- !u!114 &4634867102043257771 stripped
-MonoBehaviour:
-  m_CorrespondingSourceObject: {fileID: 7026642003372379838, guid: acee037e1b548054ba18a5fcc586c087,
-    type: 3}
-  m_PrefabInstance: {fileID: 2437008968614622485}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 1e1d186bd222f344286bda77d8534791, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

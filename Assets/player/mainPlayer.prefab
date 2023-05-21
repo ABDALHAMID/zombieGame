@@ -552,7 +552,7 @@ Transform:
   m_GameObject: {fileID: 1237149884774290836}
   m_LocalRotation: {x: 0, y: -0.000381388, z: 0, w: 1}
   m_LocalPosition: {x: -0.0022170611, y: 0, z: 0.007373612}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.1, y: 1.1, z: 1.1}
   m_ConstrainProportionsScale: 0
   m_Children:
   - {fileID: 7408483774041202608}
@@ -641,8 +641,8 @@ CharacterController:
   serializedVersion: 2
   m_Height: 1.8
   m_Radius: 0.28
-  m_SlopeLimit: 45
-  m_StepOffset: 0.25
+  m_SlopeLimit: 50
+  m_StepOffset: 0.5
   m_SkinWidth: 0.02
   m_MinMoveDistance: 0
   m_Center: {x: 0, y: 0.93, z: 0}
@@ -658,8 +658,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e54e5a728a9234ab24fcf1460ed8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 5
-  SprintSpeed: 15
+  MoveSpeed: 4
+  SprintSpeed: 10
   RotationSmoothTime: 0.145
   SpeedChangeRate: 10
   LandingAudioClip: {fileID: 8300000, guid: ff697d3070687ce4583faa0561a145a2, type: 3}
@@ -786,6 +786,7 @@ MonoBehaviour:
   shoot: 0
   Execute: 0
   Map: 0
+  Objective: 0
   analogMovement: 0
   cursorLocked: 1
   cursorInputForLook: 1

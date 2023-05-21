@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.AI;
 using UnityEngine.Events;
+using UnityEngine.UI;
 
 public class BaseEnemyControler : MonoBehaviour
 {
@@ -16,6 +17,7 @@ public class BaseEnemyControler : MonoBehaviour
 
     private bool _isScreaming;
 
+    public GameObject ui;
     public bool playerDetected { get; private set; }
     private bool seePlayer;
     [SerializeField] private int _numberOfYRaycasts, numberOfXRaycasts, raycastYAngle, raycastXAngle;
@@ -38,6 +40,14 @@ public class BaseEnemyControler : MonoBehaviour
     private bool chasing;
     private bool hitting;
 
+
+    //UI
+    public HealthSystem HealtSystem;
+    public Slider _healtBar;
+    public Gradient _healtBarColorGradient;
+    private float maxHealt, currentHealt;
+    public RawImage _healtBarImage;
+    public Transform Ui;
     private void Start()
     {
         _isScreaming = false;
@@ -45,11 +55,23 @@ public class BaseEnemyControler : MonoBehaviour
         _animator = GetComponent<Animator>();
         _navMeshAgent = GetComponent<NavMeshAgent>();
         animationConroler = GetComponent<EnemyAnimationControler>();
+        HealtSystem = GetComponent<HealthSystem>();
         Patroling();
     }
 
+
+    
+   
+
     private void Update()
     {
+
+        maxHealt = HealtSystem.GetMaxHealt();
+        currentHealt = HealtSystem.GetCurruntHealth();
+        _healtBar.maxValue = maxHealt;
+        _healtBar.value = currentHealt;
+        _healtBarImage.color = _healtBarColorGradient.Evaluate(_healtBar.normalizedValue);
+        Ui.LookAt(player.transform.position + new Vector3(0, 1, 0));
         // If the enemy not chasing the player
         if (!playerDetected)
         {
@@ -207,6 +229,8 @@ public class BaseEnemyControler : MonoBehaviour
     {
         _navMeshAgent.isStopped = true;
         Destroy(_navMeshAgent);
+        ui.SetActive(false);
+        Ui.gameObject.SetActive(false);
         Destroy(this);
     }
     private void OnDrawGizmos()

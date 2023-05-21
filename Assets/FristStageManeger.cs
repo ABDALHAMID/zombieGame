@@ -11,16 +11,24 @@ public class FristStageManeger : MonoBehaviour
     public StarterAssetsInputs _InputSystem;
     public GameObject _player, _getIntoTheWarehouseButon;
     public Animator _warehouseAnimator;
+    public AudioSource audio;
+    public bool executButton;
     public LayerMask _playerLayerMask;
     public Vector3 _openDoorCheckPoit, _openDoorHalfExtence, _nextLevelCheckPoint, _nextLevelHalfExtence;
+    private void Start()
+    {
+        Cursor.visible = false;
+    }
     void Update()
     {
+        executButton = _InputSystem.Execute;
         if (Physics.CheckBox(_openDoorCheckPoit, _openDoorHalfExtence, Quaternion.identity, _playerLayerMask))
         {
             _getIntoTheWarehouseButon.SetActive(true);
             if (_InputSystem.Execute)
             {
                 _warehouseAnimator.SetBool("openDor", true);
+                audio.Play();
             }
         }
         else _getIntoTheWarehouseButon.SetActive(false);

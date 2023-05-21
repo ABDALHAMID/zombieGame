@@ -17,6 +17,7 @@ namespace StarterAssets
 		public bool shoot;
 		public bool Execute;
 		public bool Map;
+		public bool Objective;
 
 		[Header("Movement Settings")]
 		public bool analogMovement;
@@ -70,6 +71,10 @@ namespace StarterAssets
 		{
 			MapInput(value.isPressed);
 		}
+		public void OnObjective(InputValue value)
+		{
+			ObjectiveInput(value.isPressed);
+		}
 #endif
 
 
@@ -111,6 +116,10 @@ namespace StarterAssets
 		public void MapInput(bool newExecuteState)
 		{
 			Map = newExecuteState;
+		}
+		public void ObjectiveInput(bool newExecuteState)
+		{
+			Objective = newExecuteState;
 		}
 
 		private void OnApplicationFocus(bool hasFocus)

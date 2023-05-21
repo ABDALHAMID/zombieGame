@@ -13,6 +13,7 @@ public class StartMenuControler : MonoBehaviour
         _startGameOptions.SetActive(false);
         _levelSelect.SetActive(false);
         _optionPanel.SetActive(false);
+        Cursor.visible = true ;
 
     }
 

@@ -8,14 +8,17 @@ public class OpenDoor : MonoBehaviour
     public Vector3 doorNextPosition;
     public Vector3 doorInistialPosition;
     public LayerMask PlayerLayer;
+    private AudioSource audio;
 
     public Vector3 checkBoxPosition, checkBoxSize;
 
     private float x, y, z;
     public float openSpeed;
+    private bool played;
     // Start is called before the first frame update
     void Start()
     {
+        audio = GetComponent<AudioSource>();
         doorInistialPosition = door.localPosition;
         x = openSpeed * doorNextPosition.x / Mathf.Abs(doorNextPosition.x);
         if (doorNextPosition.x == 0) x = 0;
@@ -31,12 +34,22 @@ public class OpenDoor : MonoBehaviour
     {
         if (Physics.CheckBox(checkBoxPosition + transform.localPosition, checkBoxSize, Quaternion.identity, PlayerLayer))
         {
+            if (!played)
+            {
+                audio.Play();
+                played = true;
+            }
             if (Mathf.Abs(door.localPosition.x) < Mathf.Abs(doorNextPosition.x)) door.Translate(new Vector3(x * Time.fixedDeltaTime, 0, 0));
             if (Mathf.Abs(door.localPosition.y) < Mathf.Abs(doorNextPosition.y)) door.Translate(new Vector3(0, y * Time.fixedDeltaTime, 0));
             if (Mathf.Abs(door.localPosition.z) < Mathf.Abs(doorNextPosition.z)) door.Translate(new Vector3(0, 0, z * Time.fixedDeltaTime));
         }
         else
         {
+            if (played)
+            {
+                audio.Play();
+                played = false;
+            }
             if (door.localPosition.x > Mathf.Abs(doorInistialPosition.x)) door.Translate(new Vector3(-x * Time.fixedDeltaTime, 0, 0));
             if (door.localPosition.y > Mathf.Abs(doorInistialPosition.y)) door.Translate(new Vector3(0, -y * Time.fixedDeltaTime, 0));
             if (door.localPosition.z > Mathf.Abs(doorInistialPosition.z)) door.Translate(new Vector3(0, 0, -z * Time.fixedDeltaTime));

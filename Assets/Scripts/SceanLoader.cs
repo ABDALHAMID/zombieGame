@@ -8,7 +8,7 @@ public class SceanLoader : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
-        SceneManager.LoadSceneAsync(SceneManager.GetActiveScene().buildIndex + 1);
+        SceneManager.LoadSceneAsync(0);
     }
 
     // Update is called once per frame
