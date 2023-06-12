@@ -10,12 +10,12 @@ public class OpenBigDoor : MonoBehaviour
     public SeconStageManeger maneger;
     public Animator doorAniamtor;
     private bool done;
-    private AudioSource audio;
+    private AudioSource audioSource;
     public GameObject showButton;
     // Update is called once per frame
     private void Start()
     {
-        audio = GetComponent<AudioSource>();
+        audioSource = GetComponent<AudioSource>();
     }
     void Update()
     {
@@ -26,7 +26,7 @@ public class OpenBigDoor : MonoBehaviour
                 if (maneger.executButton)
                 {
                     doorAniamtor.SetBool("openDor", true);
-                    audio.Play();
+                    audioSource.Play();
                     done = true;
                 }
 

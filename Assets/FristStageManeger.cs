@@ -1,20 +1,17 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using StarterAssets;
-using UnityEngine.InputSystem;
-using UnityEngine.Animations;
 using UnityEngine.SceneManagement;
 
 public class FristStageManeger : MonoBehaviour
 {
     public StarterAssetsInputs _InputSystem;
     public GameObject _player, _getIntoTheWarehouseButon;
+    public GameObject guide;
     public Animator _warehouseAnimator;
-    public AudioSource audio;
+    public AudioSource audioSource;
     public bool executButton;
     public LayerMask _playerLayerMask;
-    public Vector3 _openDoorCheckPoit, _openDoorHalfExtence, _nextLevelCheckPoint, _nextLevelHalfExtence;
+    public Vector3 _openDoorCheckPoit, _openDoorHalfExtence, _nextLevelCheckPoint, _nextLevelHalfExtence, _guideCheckPoint, _guideHalfExtence;
     private void Start()
     {
         Cursor.visible = false;
@@ -28,7 +25,7 @@ public class FristStageManeger : MonoBehaviour
             if (_InputSystem.Execute)
             {
                 _warehouseAnimator.SetBool("openDor", true);
-                audio.Play();
+                audioSource.Play();
             }
         }
         else _getIntoTheWarehouseButon.SetActive(false);
@@ -38,6 +35,7 @@ public class FristStageManeger : MonoBehaviour
             SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
         }
 
+        guide.SetActive(Physics.CheckBox(_guideCheckPoint, _guideHalfExtence + transform.forward, Quaternion.identity, _playerLayerMask));
     }
     private void OnDrawGizmos()
     {
@@ -45,5 +43,7 @@ public class FristStageManeger : MonoBehaviour
         Gizmos.DrawWireCube(_openDoorCheckPoit, _openDoorHalfExtence);
         Gizmos.color = Color.red;
         Gizmos.DrawWireCube(_nextLevelCheckPoint, _nextLevelHalfExtence);
+        Gizmos.color = Color.blue;
+        Gizmos.DrawWireCube(_guideCheckPoint, _guideHalfExtence + transform.forward);
     }
 }

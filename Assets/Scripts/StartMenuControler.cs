@@ -9,11 +9,11 @@ public class StartMenuControler : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        Cursor.visible = true;
         _mainScreenPanel.SetActive(true);
         _startGameOptions.SetActive(false);
         _levelSelect.SetActive(false);
         _optionPanel.SetActive(false);
-        Cursor.visible = true ;
 
     }
 

@@ -1,10 +1,7 @@
-using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
 using StarterAssets;
-using UnityEngine.InputSystem;
 
 
 public class canvasProprty : MonoBehaviour
@@ -33,7 +30,7 @@ public class canvasProprty : MonoBehaviour
         magazineSize = _playerWeaponManager.magazineSize;
         _amo.SetText(bulletsLeft / bulletsPerTap + " / " + magazineSize / bulletsPerTap);
         float healtPercet = currentHealt * 100 / maxHealt;
-        _healtPersontage.SetText(healtPercet + "%");
+        _healtPersontage.SetText(Mathf.Round(healtPercet) + "%");
         if (_playerWeaponManager.reloading) _reloading.SetActive(true);
         else _reloading.SetActive(false);
         _healtBar.maxValue = maxHealt;
