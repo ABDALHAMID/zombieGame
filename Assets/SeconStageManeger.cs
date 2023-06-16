@@ -132,7 +132,7 @@ public class SeconStageManeger : MonoBehaviour
     private void MissionDone()
     {
         Debug.Log("Mission Done");
-        Invoke(nameof(NextSceane), 5f);
+        Invoke(nameof(NextSceane), 1f);
     }
     private void NextSceane()
     {

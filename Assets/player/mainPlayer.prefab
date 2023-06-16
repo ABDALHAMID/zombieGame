@@ -658,8 +658,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 26e54e5a728a9234ab24fcf1460ed8a2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MoveSpeed: 4
-  SprintSpeed: 10
+  MoveSpeed: 6
+  SprintSpeed: 15
   RotationSmoothTime: 0.145
   SpeedChangeRate: 10
   LandingAudioClip: {fileID: 8300000, guid: ff697d3070687ce4583faa0561a145a2, type: 3}
@@ -731,7 +731,19 @@ MonoBehaviour:
         m_CallState: 2
   _dieEvent:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 7023510523937724096}
+        m_TargetAssemblyTypeName: PlayerHealt, Assembly-CSharp
+        m_MethodName: OnDie
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!114 &2155628358906381248
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -804,9 +816,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   pushLayers:
     serializedVersion: 2
-    m_Bits: 2147483647
+    m_Bits: 28511
   canPush: 1
-  strength: 1.1
+  strength: 1.27
 --- !u!114 &2155628358906381249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -848,7 +860,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _damageVoulume: {fileID: 0}
-  damageTime: 2
+  deadPanel: {fileID: 0}
+  damageTime: 0.5
 --- !u!1 &1308043101233727024
 GameObject:
   m_ObjectHideFlags: 0

@@ -393,7 +393,7 @@ MonoBehaviour:
   raycastXAngle: 20
   raycastLength: 200
   scherchPoint: {fileID: 3402881854335415126}
-  _chasingSpeed: 5
+  _chasingSpeed: 3
   _walkPointRange: 15
   _walkingSpeed: 2
   timeToStopChasing: 7
@@ -444,7 +444,7 @@ NavMeshAgent:
   m_Acceleration: 8
   avoidancePriority: 60
   m_AngularSpeed: 180
-  m_StoppingDistance: 0.3
+  m_StoppingDistance: 0.6
   m_AutoTraverseOffMeshLink: 1
   m_AutoBraking: 1
   m_AutoRepath: 1
@@ -671,7 +671,7 @@ AudioSource:
   Priority: 128
   DopplerLevel: 1
   MinDistance: 0.42935967
-  MaxDistance: 20
+  MaxDistance: 50
   Pan2D: 0
   rolloffMode: 2
   BypassEffects: 0
@@ -690,22 +690,22 @@ AudioSource:
       inWeight: 0
       outWeight: 0
     - serializedVersion: 3
-      time: 0.39388722
-      value: 0.44856143
-      inSlope: -1.270642
-      outSlope: -1.270642
+      time: 0.13245076
+      value: 0.26522708
+      inSlope: -0.4494241
+      outSlope: -0.4494241
       tangentMode: 0
       weightedMode: 0
       inWeight: 0.33333334
-      outWeight: 0.26934844
+      outWeight: 0.27199307
     - serializedVersion: 3
       time: 1
       value: 0
-      inSlope: -1.0416666
-      outSlope: -1.0416666
+      inSlope: -0.31635302
+      outSlope: -0.31635302
       tangentMode: 0
       weightedMode: 0
-      inWeight: 0
+      inWeight: 0.42189312
       outWeight: 0
     m_PreInfinity: 2
     m_PostInfinity: 2
