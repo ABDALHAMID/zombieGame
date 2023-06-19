@@ -5,19 +5,22 @@ EditorBuildSettings:
   m_ObjectHideFlags: 0
   serializedVersion: 2
   m_Scenes:
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/mainMenu/mainMenu.unity
     guid: a7c3382dee29a2449a3fecf9218e86b4
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/jetscean/FirstMisionIntro.unity
     guid: 5e8f9731f09e5ca44b304d3508b62fb7
-  - enabled: 0
+  - enabled: 1
     path: Assets/Scenes/FirstStage/FirstStage.unity
     guid: 94d8d345da6465b42815b27af40065fd
   - enabled: 1
     path: Assets/Scenes/FirstMission/seconScene/FirstMissionSecondScene.unity
     guid: e9294eb6356cf0e41a0bdf2fef3908d0
-  - enabled: 0
+  - enabled: 1
+    path: Assets/Scenes/second stage/Scene_A.unity
+    guid: c0d944ca9defd20449bc336e50d75a08
+  - enabled: 1
     path: Assets/Scenes/IntroScene/IntroScenes.unity
     guid: 2e6db5abead2abb4eb835c2058082b8e
   m_configObjects:
