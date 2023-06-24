@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public class StartMenuControler : MonoBehaviour
 {
     public GameObject _mainScreenPanel, _levelSelect, _startGameOptions, _optionPanel;
-    // Start is called before the first frame update
     void Start()
     {
         Cursor.visible = true;
@@ -14,15 +13,7 @@ public class StartMenuControler : MonoBehaviour
         _startGameOptions.SetActive(false);
         _levelSelect.SetActive(false);
         _optionPanel.SetActive(false);
-
     }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
-
     public void StartGame()
     {
         _mainScreenPanel.SetActive(false);
@@ -50,8 +41,9 @@ public class StartMenuControler : MonoBehaviour
     }
     public void LevelSelectBack()
     {
-        _startGameOptions.SetActive(true);
-        _levelSelect.SetActive(false);
+        SceneManager.LoadScene(5);
+        //_startGameOptions.SetActive(true);
+        //_levelSelect.SetActive(false);
     }
     public void OptionsPanelBack()
     {
