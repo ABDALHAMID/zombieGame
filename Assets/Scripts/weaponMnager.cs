@@ -114,6 +114,20 @@ public class weaponMnager : MonoBehaviour
             inMoveLayerRig.weight = Mathf.LerpAngle(inMoveLayerRig.weight, 1, weaponPoseTime);
             isAimming = false;
         }
+        if(input.shoot == true)
+        {
+            shooting = true;
+        }
+        else
+        {
+            shooting = false;
+        }
+        //if (input.switchWeapon)
+        //{
+        //    weaponIndex++;
+        //    if (weaponIndex >= weapons) weaponIndex = 0;
+        //    weaponState.ChangeWeapon(weaponIndex);
+        //}        
         MyInput();
 
 
@@ -141,9 +155,9 @@ public class weaponMnager : MonoBehaviour
         transform.forward = Vector3.Lerp(transform.forward, aimDirection, Time.deltaTime * 50f);
     }
     private void OnEnable()
-    {
-        shoot.action.performed += setShootTrue => { shooting = true;};
-        shoot.action.canceled += setShootfalse => { shooting = false;};
+    {        
+        //shoot.action.performed += setShootTrue => { shooting = true; };
+        //shoot.action.canceled += setShootfalse => { shooting = false;};
         switchWeapon.action.performed += switchWeapons => { 
             if (switchWeapons.ReadValue<float>() > 0) 
             {

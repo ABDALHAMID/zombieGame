@@ -19,6 +19,11 @@ namespace StarterAssets
 		public bool Map;
 		public bool Objective;
 
+		//[Header("weapon switching")]
+		//public bool switchWeapon;
+		//public bool weapon1;
+		//public bool weapon2;
+
 		[Header("Movement Settings")]
 		public bool analogMovement;
 
@@ -75,10 +80,25 @@ namespace StarterAssets
 		{
 			ObjectiveInput(value.isPressed);
 		}
+
+        //public void OnSwitchWeapon(InputValue value)
+        //{
+        //    SwitchWeaponInput(value.isPressed);
+        //}
+
+        //public void OnWeapon1(InputValue value)
+        //{
+        //    Weapon1Input(value.isPressed);
+        //}
+
+        //public void OnWeapon2(InputValue value)
+        //{
+        //    Weapon2Input(value.isPressed);
+        //}
 #endif
 
 
-		public void MoveInput(Vector2 newMoveDirection)
+        public void MoveInput(Vector2 newMoveDirection)
 		{
 			move = newMoveDirection;
 		} 
@@ -122,7 +142,22 @@ namespace StarterAssets
 			Objective = newExecuteState;
 		}
 
-		private void OnApplicationFocus(bool hasFocus)
+        //public void SwitchWeaponInput(bool newExecuteState)
+        //{
+        //   switchWeapon = newExecuteState;
+        //}
+
+        //public void Weapon1Input(bool newExecuteState)
+        //{
+        //    weapon1 = newExecuteState;
+        //}
+
+        //public void Weapon2Input(bool newExecuteState)
+        //{
+        //    weapon2 = newExecuteState;
+        //}
+
+        private void OnApplicationFocus(bool hasFocus)
 		{
 			SetCursorState(cursorLocked);
 		}

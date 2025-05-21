@@ -27,7 +27,7 @@
                     "name": "Jump",
                     "type": "Button",
                     "id": "8c4abdf8-4099-493a-aa1a-129acec7c3df",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -43,9 +43,9 @@
                 },
                 {
                     "name": "Shoot",
-                    "type": "Button",
+                    "type": "PassThrough",
                     "id": "402c3ffe-d083-48c3-8e4e-950cf81a0121",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -63,7 +63,7 @@
                     "name": "Reload",
                     "type": "Button",
                     "id": "14f99358-3b6a-4347-9864-073d1e4337d5",
-                    "expectedControlType": "Button",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -96,10 +96,28 @@
                     "initialStateCheck": false
                 },
                 {
-                    "name": "SwitchWeapon",
-                    "type": "PassThrough",
+                    "name": "switchWeapon",
+                    "type": "Button",
                     "id": "d10607ad-6aee-4279-9c3a-e847e9a08dd4",
-                    "expectedControlType": "Axis",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "weapon1",
+                    "type": "Button",
+                    "id": "0f7010ee-172e-4d05-bfd6-6a0cc95b4953",
+                    "expectedControlType": "",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "weapon2",
+                    "type": "Button",
+                    "id": "faaa1362-3d67-412a-8d03-5b84df12dfa3",
+                    "expectedControlType": "",
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
@@ -406,11 +424,11 @@
                 {
                     "name": "",
                     "id": "e98c8657-57f4-4cd2-8a70-d9366d813578",
-                    "path": "<Mouse>/scroll/y",
+                    "path": "<Mouse>/middleButton",
                     "interactions": "",
                     "processors": "",
-                    "groups": "",
-                    "action": "SwitchWeapon",
+                    "groups": ";KeyboardMouse",
+                    "action": "switchWeapon",
                     "isComposite": false,
                     "isPartOfComposite": false
                 },
@@ -433,6 +451,28 @@
                     "processors": "",
                     "groups": "Gamepad",
                     "action": "Objective",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "42c08a04-5665-4ab8-8e48-bee8ca096656",
+                    "path": "<Keyboard>/1",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";KeyboardMouse",
+                    "action": "weapon1",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "f6edf19c-de97-436d-8e01-bfe8cfbfb846",
+                    "path": "<Keyboard>/2",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": ";KeyboardMouse",
+                    "action": "weapon2",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }
